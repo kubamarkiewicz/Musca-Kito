@@ -1,0 +1,161 @@
+[07-May-2014 15:58:26 Europe/Paris] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 14
+[07-May-2014 15:58:26 Europe/Paris] PHP Stack trace:
+[07-May-2014 15:58:26 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 15:58:26 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 15:58:26 Europe/Paris] PHP   3. mysql_connect() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:14
+[07-May-2014 15:58:26 Europe/Paris] PHP Deprecated:  mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 14
+[07-May-2014 15:58:26 Europe/Paris] PHP Stack trace:
+[07-May-2014 15:58:26 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 15:58:26 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 15:58:26 Europe/Paris] PHP   3. mysql_connect() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:14
+[07-May-2014 15:58:48 Europe/Paris] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, object given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 20
+[07-May-2014 15:58:48 Europe/Paris] PHP Stack trace:
+[07-May-2014 15:58:48 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 15:58:48 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 15:58:48 Europe/Paris] PHP   3. Musca_DB->setDB() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:16
+[07-May-2014 15:58:48 Europe/Paris] PHP   4. mysql_select_db() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:20
+[07-May-2014 15:58:48 Europe/Paris] PHP Warning:  mysql_info() expects parameter 1 to be resource, object given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 238
+[07-May-2014 15:58:48 Europe/Paris] PHP Stack trace:
+[07-May-2014 15:58:48 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 15:58:48 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 15:58:48 Europe/Paris] PHP   3. Musca_DB->setDB() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:16
+[07-May-2014 15:58:48 Europe/Paris] PHP   4. Musca_DB->error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:20
+[07-May-2014 15:58:48 Europe/Paris] PHP   5. mysql_info() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:238
+[07-May-2014 15:58:48 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error setting the database<br>
+<br>
+<br>
+' in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:240
+Stack trace:
+#0 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(20): Musca_DB->error('Error setting t...')
+#1 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(16): Musca_DB->setDB('musca')
+#2 /home/kuba/projekty/musca/MuscaKit/index.php(7): Musca_DB->__construct('localhost', 'root', 'root', 'musca')
+#3 {main}
+  thrown in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 240
+[07-May-2014 16:00:42 Europe/Paris] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, string given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 20
+[07-May-2014 16:00:42 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:00:42 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:00:42 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:00:42 Europe/Paris] PHP   3. Musca_DB->setDB() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:16
+[07-May-2014 16:00:42 Europe/Paris] PHP   4. mysqli_select_db() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:20
+[07-May-2014 16:00:42 Europe/Paris] PHP Warning:  mysql_info() expects parameter 1 to be resource, object given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 238
+[07-May-2014 16:00:42 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:00:42 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:00:42 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:00:42 Europe/Paris] PHP   3. Musca_DB->setDB() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:16
+[07-May-2014 16:00:42 Europe/Paris] PHP   4. Musca_DB->error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:20
+[07-May-2014 16:00:42 Europe/Paris] PHP   5. mysql_info() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:238
+[07-May-2014 16:00:42 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error setting the database<br>
+<br>
+<br>
+' in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:240
+Stack trace:
+#0 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(20): Musca_DB->error('Error setting t...')
+#1 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(16): Musca_DB->setDB('musca')
+#2 /home/kuba/projekty/musca/MuscaKit/index.php(7): Musca_DB->__construct('localhost', 'root', 'root', 'musca')
+#3 {main}
+  thrown in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 240
+[07-May-2014 16:01:18 Europe/Paris] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 33
+[07-May-2014 16:01:18 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:01:18 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:01:18 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:01:18 Europe/Paris] PHP   3. Musca_DB->setEncoding() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:17
+[07-May-2014 16:01:18 Europe/Paris] PHP   4. Musca_DB->query() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:25
+[07-May-2014 16:01:18 Europe/Paris] PHP   5. mysql_query() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:33
+[07-May-2014 16:01:18 Europe/Paris] PHP Warning:  mysql_info() expects parameter 1 to be resource, object given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 238
+[07-May-2014 16:01:18 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:01:18 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:01:18 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:01:18 Europe/Paris] PHP   3. Musca_DB->setEncoding() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:17
+[07-May-2014 16:01:18 Europe/Paris] PHP   4. Musca_DB->query() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:25
+[07-May-2014 16:01:18 Europe/Paris] PHP   5. Musca_DB->error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:35
+[07-May-2014 16:01:18 Europe/Paris] PHP   6. mysql_info() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:238
+[07-May-2014 16:01:18 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error executing sql query<br>
+<br>
+SET NAMES utf8<br>
+' in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:240
+Stack trace:
+#0 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(35): Musca_DB->error('Error executing...', 'SET NAMES utf8')
+#1 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(25): Musca_DB->query('SET NAMES utf8')
+#2 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(17): Musca_DB->setEncoding('utf8')
+#3 /home/kuba/projekty/musca/MuscaKit/index.php(7): Musca_DB->__construct('localhost', 'root', 'root', 'musca')
+#4 {main}
+  thrown in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 240
+[07-May-2014 16:08:58 Europe/Paris] PHP Fatal error:  Call to undefined method Musca_I18n::getCurrentLang() in /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php on line 11
+[07-May-2014 16:08:58 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:08:58 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:08:58 Europe/Paris] PHP   2. Musca_Dispatcher->igniter() /home/kuba/projekty/musca/MuscaKit/index.php:10
+[07-May-2014 16:08:58 Europe/Paris] PHP   3. App_Controller->__construct() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/dispatcher.php:119
+[07-May-2014 16:09:36 Europe/Paris] PHP Warning:  require_once(tree.php): failed to open stream: No such file or directory in /home/kuba/projekty/musca/MuscaKit/musca_application/config.php on line 91
+[07-May-2014 16:09:36 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:09:36 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:09:36 Europe/Paris] PHP   2. Musca_Dispatcher->igniter() /home/kuba/projekty/musca/MuscaKit/index.php:10
+[07-May-2014 16:09:36 Europe/Paris] PHP   3. App_Controller->__construct() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/dispatcher.php:119
+[07-May-2014 16:09:36 Europe/Paris] PHP   4. Model_Page->__construct() /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php:11
+[07-May-2014 16:09:36 Europe/Paris] PHP   5. spl_autoload_call() /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php:20
+[07-May-2014 16:09:36 Europe/Paris] PHP   6. classLoader() /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php:0
+[07-May-2014 16:09:36 Europe/Paris] PHP Fatal error:  require_once(): Failed opening required 'tree.php' (include_path='.:/home/kuba/projekty/musca/MuscaKit/musca_library/:/home/kuba/projekty/musca/MuscaKit/musca_application/_library/') in /home/kuba/projekty/musca/MuscaKit/musca_application/config.php on line 91
+[07-May-2014 16:09:36 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:09:36 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:09:36 Europe/Paris] PHP   2. Musca_Dispatcher->igniter() /home/kuba/projekty/musca/MuscaKit/index.php:10
+[07-May-2014 16:09:36 Europe/Paris] PHP   3. App_Controller->__construct() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/dispatcher.php:119
+[07-May-2014 16:09:36 Europe/Paris] PHP   4. Model_Page->__construct() /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php:11
+[07-May-2014 16:09:36 Europe/Paris] PHP   5. spl_autoload_call() /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php:20
+[07-May-2014 16:09:36 Europe/Paris] PHP   6. classLoader() /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php:0
+[07-May-2014 16:10:10 Europe/Paris] PHP Fatal error:  Class 'Tree' not found in /home/kuba/projekty/musca/MuscaKit/musca_application/_library/model/page.php on line 20
+[07-May-2014 16:10:10 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:10:10 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:10:10 Europe/Paris] PHP   2. Musca_Dispatcher->igniter() /home/kuba/projekty/musca/MuscaKit/index.php:10
+[07-May-2014 16:10:10 Europe/Paris] PHP   3. App_Controller->__construct() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/dispatcher.php:119
+[07-May-2014 16:10:10 Europe/Paris] PHP   4. Model_Page->__construct() /home/kuba/projekty/musca/MuscaKit/musca_application/_library/app/controller.php:11
+[07-May-2014 16:55:46 Europe/Paris] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'marcus_marcus'@'localhost' (using password: YES) in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 14
+[07-May-2014 16:55:46 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:55:46 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:55:46 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:55:46 Europe/Paris] PHP   3. mysqli_connect() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:14
+[07-May-2014 16:55:46 Europe/Paris] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 235
+[07-May-2014 16:55:46 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:55:46 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:55:46 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:55:46 Europe/Paris] PHP   3. Musca_DB->error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:15
+[07-May-2014 16:55:46 Europe/Paris] PHP   4. mysqli_error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:235
+[07-May-2014 16:55:46 Europe/Paris] PHP Warning:  mysqli_info() expects parameter 1 to be mysqli, boolean given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 238
+[07-May-2014 16:55:46 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:55:46 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:55:46 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:55:46 Europe/Paris] PHP   3. Musca_DB->error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:15
+[07-May-2014 16:55:46 Europe/Paris] PHP   4. mysqli_info() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:238
+[07-May-2014 16:55:46 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error connecting to the server<br>
+<br>
+<br>
+' in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:240
+Stack trace:
+#0 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(15): Musca_DB->error('Error connectin...')
+#1 /home/kuba/projekty/musca/MuscaKit/index.php(7): Musca_DB->__construct('localhost', 'marcus_marcus', 'k1u2b3a4', 'marcus_placczar...')
+#2 {main}
+  thrown in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 240
+[07-May-2014 16:55:48 Europe/Paris] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'marcus_marcus'@'localhost' (using password: YES) in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 14
+[07-May-2014 16:55:48 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:55:48 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:55:48 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:55:48 Europe/Paris] PHP   3. mysqli_connect() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:14
+[07-May-2014 16:55:48 Europe/Paris] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 235
+[07-May-2014 16:55:48 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:55:48 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:55:48 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:55:48 Europe/Paris] PHP   3. Musca_DB->error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:15
+[07-May-2014 16:55:48 Europe/Paris] PHP   4. mysqli_error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:235
+[07-May-2014 16:55:48 Europe/Paris] PHP Warning:  mysqli_info() expects parameter 1 to be mysqli, boolean given in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 238
+[07-May-2014 16:55:48 Europe/Paris] PHP Stack trace:
+[07-May-2014 16:55:48 Europe/Paris] PHP   1. {main}() /home/kuba/projekty/musca/MuscaKit/index.php:0
+[07-May-2014 16:55:48 Europe/Paris] PHP   2. Musca_DB->__construct() /home/kuba/projekty/musca/MuscaKit/index.php:7
+[07-May-2014 16:55:48 Europe/Paris] PHP   3. Musca_DB->error() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:15
+[07-May-2014 16:55:48 Europe/Paris] PHP   4. mysqli_info() /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:238
+[07-May-2014 16:55:48 Europe/Paris] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error connecting to the server<br>
+<br>
+<br>
+' in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php:240
+Stack trace:
+#0 /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php(15): Musca_DB->error('Error connectin...')
+#1 /home/kuba/projekty/musca/MuscaKit/index.php(7): Musca_DB->__construct('localhost', 'marcus_marcus', 'k1u2b3a4', 'marcus_placczar...')
+#2 {main}
+  thrown in /home/kuba/projekty/musca/MuscaKit/musca_library/musca/db.php on line 240

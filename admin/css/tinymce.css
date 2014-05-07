@@ -1,8 +1,8 @@
 body, td, pre {
-    color: #333333;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #6D7177;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 1.42857;
 }
 
 .intro
@@ -21,4 +21,9 @@ body, td, pre {
 {
 	float: right;
 	margin: 0 10px 0 10px;
+}
+
+.small
+{
+    font-size: 12px;
 }

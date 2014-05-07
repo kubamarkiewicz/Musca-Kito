@@ -2,7 +2,7 @@
 if($_SESSION["verify"] != "RESPONSIVEfilemanager") die('forbidden');
 
 // auth musca
-include_once '../../musca-app/config.php';
+include_once '../../musca_application/config.php';
 if(!$_SESSION[CAPSULE]['auth']) die('forbidden');
 
 //------------------------------------------------------------------------------
