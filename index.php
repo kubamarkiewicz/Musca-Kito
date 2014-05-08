@@ -9,4 +9,3 @@
 	$dispatcher = new Musca_Dispatcher($_SERVER['REQUEST_URI'], $db, $i18n);
 	$dispatcher->igniter();
 
-?>

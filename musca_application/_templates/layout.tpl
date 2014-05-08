@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{if $title}{$title|htmlspecialchars}{else}{t section="$section"}page title{/t}{/if}</title>
-    <meta name="description" content="{if $description}{$description|strip_tags|htmlspecialchars}{else}{t section="$section"}meta description{/t}{/if}">
+    <title>{if $title}{$title|htmlspecialchars}{else}{t section="$section" label="Page title"}Page title{/t}{/if}</title>
+    <meta name="description" content="{if $description}{$description|strip_tags|htmlspecialchars}{else}{t section="$section" label="Page description"}Page description{/t}{/if}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="{$musca_url}/assets/ico/favicon.png">
+    <link rel="shortcut icon" href="{$musca_url}/assets/favicon.png">
 
     <!-- Le styles -->
     <link rel="stylesheet" href="{$musca_url}/assets/bootstrap/themes/united.min.css">
@@ -33,11 +33,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li {if $section=='product'}class="active"{/if}><a href="{$musca_url}/product">{t section="menu"}Products{/t}</a></li>
-            {foreach $menuItems as $item}
-              <li class=""><a href="{$musca_url}/{$item.slug}">{t section="menu"}{$item.name}{/t}</a></li>
-                  {/foreach}
-            <li><a href="{$musca_url}/blablabla">{t section="menu"}404{/t}</a></li>
+            <li {if $section=='contact'}class="active"{/if}><a href="{$musca_url}/contact">{t section="menu"}Contact{/t}</a></li>
           </ul>
           <p class="navbar-text navbar-right langs">
             {foreach $langs as $item}

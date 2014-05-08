@@ -3,10 +3,11 @@
 	class Index extends App_Controller
 	{
 
-		function first()
+		function first($param=null)
 		{
-			$this->smarty->display('index.tpl');
+			if ($param) $this->error();
+			$this->smarty->assign('section', 'home');
+			$this->smarty->display('home.tpl');
 		}
-
 
 	}

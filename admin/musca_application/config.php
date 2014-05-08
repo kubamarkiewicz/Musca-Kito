@@ -5,7 +5,7 @@
 	 *	Musca App configuration 
 	 *
 	 *	All constants are defined here.
-	 *	Convention for Paths and URLs is: with trailing slash & without final slash eg. /your/path
+	 *	A rule of thumb for paths and URLs is: start with slash, end without it eg.: /your/localpath, /your/url
 	 */
 
 
@@ -27,17 +27,17 @@
 	// error reporting
 		define('DEBUG_MODE', true);
 
-	// languages activated in the app, ISO values seperated by coma eg. 'en,es,pl'. first language is the default.
-		define('LANGS', 'en,es,pl');
-		
+	// website languages, ISO values seperated by coma eg. 'en,es,pl'. first language is the default.
+		define('WEB_LANGS', 'en,es');
+
 	// configuration of administration panel 
 		define('ADMIN', true);
-		define('TRANSLATIONS_LANGS', 'en,es,pl');
+		define('ADMIN_LANGS', 'en'); // administration panel languages
 
 
 
 
-	/* AUTO-CONFIGURATION - BE CAREFUL  ********************************************************/
+	/* AUTO-CONFIGURATION - DO NOT TOUCH  ********************************************************/
 
 							
 		define('MUSCA_URL', ((@$_SERVER["HTTPS"] == "on") ? "https://" : "http://") . $_SERVER['HTTP_HOST'].rtrim(dirname($_SERVER['SCRIPT_NAME']), '/'));	// URL of the front controller (index.php) eg. "http://www.compo.org/learning-center"
@@ -100,6 +100,3 @@
     	session_start();
 	// ------------------------------------- >>
 
-
-
-?>
