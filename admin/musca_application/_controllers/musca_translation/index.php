@@ -74,7 +74,7 @@
 		
 		function block($section=false)
 		{
-			$section = mysql_real_escape_string($section);
+			$section = $this->db->link->real_escape_string($section);
 
 			$langs =  explode(',', WEB_LANGS);
 			$this->smarty->assign('web_langs', $langs);
@@ -119,12 +119,12 @@
 
 				foreach($tags as $tag => $values)
 				{
-					$tag = mysql_real_escape_string($tag);
+					$tag = $this->db->link->real_escape_string($tag);
 					foreach($values as $lang => $value)
 					{
 					    $update = array();
 					    $update['value'] = $value;
-					    $lang = mysql_real_escape_string($lang);
+					    $lang = $this->db->link->real_escape_string($lang);
 					    $this->db->update(PRE.'musca_i18n',$update,"section='$section' AND lang='$lang' AND tag='$tag'");
 					}
 

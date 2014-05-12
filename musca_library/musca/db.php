@@ -49,19 +49,18 @@
 		}	
 		public function getAssoc($query, $params=false, $field=0) {
 			if (!($res = $this->query($query,$params))) return false;
+			$finfo = $res->fetch_field_direct($field);	
 			$rows = array();
 			if (mysqli_num_fields($res)==2) {
 				while($row=mysqli_fetch_row($res)) $rows[$row[0]]=$row[1];
 			} else {
-				if (is_numeric($field)) $field=mysqli_field_name($res,$field);
-				while($row=mysqli_fetch_assoc($res)) $rows[$row[$field]]=$row;
+				while($row=mysqli_fetch_assoc($res)) $rows[$row[$finfo->name]]=$row;
 			}
 			mysqli_free_result($res);
 			return $rows;
 		}
 		public function &getCol($query, $params=false, $field=0) {
 			if (!($res = $this->query($query,$params))) return false;
-			if (is_numeric($field)) $field=mysqli_field_name($res,$field);
 			$rows = array();
 			while($row=mysqli_fetch_assoc($res)) $rows[]=$row[$field];
 			mysqli_free_result($res);
@@ -86,22 +85,22 @@
 			$fields = array();
 			$n_fields = mysqli_num_fields($res);
 			for ($i=0; $i < $n_fields; $i++) {
-				$name = mysqli_field_name($res, $i);
-				$table = mysqli_field_table($res, $i);
+				// $name = mysqli_field_name($res, $i);
+				$finfo = $res->fetch_field_direct($i);	
 				$field = array(
-					'table' => $table,
-				    'type'  => mysqli_field_type($res, $i),
-				    'name'  => $name,
-				    'len'   => mysqli_field_len($res, $i),
-				    'flags' => mysqli_field_flags($res, $i),
-				    'subtype' => mysqli_field_type($res, $i)
+					'table' => $finfo->table,
+				    'type'  => $finfo->type,
+				    'name'  => $finfo->name,
+				    'len'   => $finfo->max_length,
+				    'flags' => $finfo->flags,
+				    'subtype' => $finfo->type
 				);
 				$field['subtype'] = $this->getFieldSubtype($field);
 				if ($group) {
-					if (!isset($fields[$table])) $fields[$table] = array();
-					$fields[$table][$name] = $field;
+					if (!isset($fields[$finfo->table])) $fields[$finfo->table] = array();
+					$fields[$finfo->table][$finfo->name] = $field;
 				} else {
-					$fields[$name] = $field;
+					$fields[$finfo->name] = $field;
 				}
 			}
 			mysqli_free_result($res);
@@ -222,20 +221,20 @@
 						/*
 							escaping strings for database
 							
-							1. escape string with: mysqli_real_escape_string($string)
+							1. escape string with: mysql_real_escape_string($string)
 							2. unescape string with: stripslashes($string)
 						*/
-						$_data[$k] = mysqli_real_escape_string($data[$k]);
+						$_data[$k] = $this->link->real_escape_string($data[$k]);
 				}
 			}
 			return $_data;
 		}
 		
 		private function error($msg,$query='') {
-			$msg = "$msg<br>\n".mysqli_error();
+			$msg = "$msg<br>\n".$this->link->error;
 			if (DEBUG_MODE) {
 				$msg.="<br>\n$query";
-				$msg.="<br>\n".mysqli_info($this->link);
+				$msg.="<br>\n".$this->link->info;
 			}
 			throw new Exception($msg);
 			// if ($this->die_on_errors) die($msg); 
