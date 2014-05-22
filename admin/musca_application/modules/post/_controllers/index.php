@@ -2,30 +2,25 @@
 
 	class Index extends App_Controller
 	{
-		protected $modul = 'marker';
-		protected $module_title = 'Stories';
-		protected $flex_table = 'marker'; 			// without prefix
-		protected $flex_fields = 'id, createDate, title, category, name';
+		protected $modul = 'post';
+		protected $module_title = 'Posts';
+		protected $flex_table = 'post'; 			// without prefix
+		protected $flex_fields = 'id, date, name, published';
 	    protected $flex_col_model = array(
 										array('display' => 'ID', 'name' => 'id', 'width' => 25, 'sortable' => true, 'align' => 'right'),
-										array('display' => 'Date', 'name' => 'createDate', 'width' => 130, 'sortable' => true, 'align' => 'right'),
+										array('display' => 'Date', 'name' => 'date', 'width' => 130, 'sortable' => true, 'align' => 'right'),
 										array('display' => 'Title', 'name' => 'name', 'width' => 500, 'sortable' => true, 'align' => 'left'),
-										array('display' => 'Category', 'name' => 'category', 'width' => 80, 'sortable' => true, 'align' => 'right'),
-										array('display' => 'User name', 'name' => 'name', 'width' => 150, 'sortable' => true, 'align' => 'left')
+										array('display' => 'Published', 'name' => 'published', 'width' => 60, 'sortable' => true, 'align' => 'right')
 									);
-        protected $flex_sortname = 'createDate';
+        protected $flex_sortname = 'date';
         protected $flex_sortorder = 'DESC';
-		protected $flex_where = 'deleted<>1 AND published=1';
-        protected $flex_class = array();
+		// protected $flex_where = '';
+        protected $flex_class = array('published'=>'bool');
 		
 
 		function __construct($db=null, $i18n=null)
 		{
 			parent::__construct($db, $i18n);
-
-			$this->flex_buttons = "buttons : [ 
-					{name: '".$this->i18n->t('Delete', 'grid')."', bclass: 'delete', onpress: test} 
-				], ";
 		}
 		
 
@@ -44,7 +39,7 @@
 		{
 			$this->setEditIds($id, $this->modul, $this->flex_table, 'id', 'name');
 
-			$model = new Model_Marker($this->db);
+			$model = new Model_Post($this->db);
 
 			if ($_POST['send'])
 			{
@@ -64,7 +59,7 @@
 
 		function order()
 		{
-			$model = new Model_Marker($this->db);
+			$model = new Model_Post($this->db);
 
 			if (isset($_POST['send']))
 			{
@@ -79,7 +74,7 @@
 
 		function del()
 		{
-			$model = new Model_Marker($this->db);
+			$model = new Model_Post($this->db);
 			if ($ids = explode(',', $_POST['ids'])) foreach ($ids as $id) $model->delete($_POST['ids']);
 			unset($_SESSION['edit_ids'][$this->modul]);
 		}

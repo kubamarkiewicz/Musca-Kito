@@ -41,7 +41,7 @@
 			$this->smarty->assign('sortorder', $this->flex_sortorder);
 			$this->smarty->assign('modul', $this->modul);
 
-			$this->smarty->assign('web_langs', explode(',', WEB_LANGS));
+			$this->smarty->assign('translations_langs', $this->getLangs());
 			$model = new Model_Musca_Translation($this->db);
 			$this->smarty->assign('sections', $model->getSections());
 			
@@ -50,7 +50,7 @@
 		
 		function add()
 		{
-			$this->edit($this->db->getOne("SELECT MAX(id_i18n) FROM ".PRE."musca_i18n")+1);
+			$this->edit($this->db->getOne("SELECT MAX(id_i18n) FROM ".PRE.$this->flex_table)+1);
 		}
 
 		function edit($id=false)
@@ -68,7 +68,7 @@
 
 			$this->smarty->assign('elem', $elem);
 			$this->smarty->assign('id',$id);
-			$this->smarty->assign('web_langs', explode(',', WEB_LANGS));
+			$this->smarty->assign('translations_langs', $this->getLangs());
 			$this->output($this->modul.'/edit.tpl', 1);
 		}
 		
@@ -76,8 +76,8 @@
 		{
 			$section = $this->db->link->real_escape_string($section);
 
-			$langs =  explode(',', WEB_LANGS);
-			$this->smarty->assign('web_langs', $langs);
+			$langs =  $this->getLangs();
+			$this->smarty->assign('translations_langs', $langs);
 
 			$model = new Model_Musca_Translation($this->db);
 			$sections = $model->getSections();
@@ -125,14 +125,14 @@
 					    $update = array();
 					    $update['value'] = $value;
 					    $lang = $this->db->link->real_escape_string($lang);
-					    $this->db->update(PRE.'musca_i18n',$update,"section='$section' AND lang='$lang' AND tag='$tag'");
+					    $this->db->update(PRE.$this->flex_table,$update,"section='$section' AND lang='$lang' AND tag='$tag'");
 					}
 
 				}
 				$this->smarty->assign('saved', true);
 			}
 		    
-		    $sql = "SELECT * FROM ".PRE."musca_i18n WHERE section='$section' ORDER BY id_i18n";
+		    $sql = "SELECT * FROM ".PRE.$this->flex_table." WHERE section='$section' ORDER BY id_i18n";
 		    $result = $this->db->getAll($sql);
 		    $return = array();
 		    foreach($result as $item) 
@@ -149,7 +149,7 @@
 		function del()
 		{
 			if (!$this->getAuth($this->modul) || !isset($_POST['ids'])) die();
-			$del = $this->db->getAssoc("SELECT tag, section FROM ".PRE."musca_i18n WHERE id_i18n IN (".rtrim($_POST['ids'],",").")");
+			$del = $this->db->getAssoc("SELECT tag, section FROM ".PRE.$this->flex_table." WHERE id_i18n IN (".rtrim($_POST['ids'],",").")");
 			foreach ($del as $tag => $section) $this->db->delete($this->flex_table, "section='$section' AND tag='$tag'");
 		}
 

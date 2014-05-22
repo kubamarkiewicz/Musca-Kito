@@ -32,7 +32,7 @@
 
 	// configuration of administration panel 
 		define('ADMIN', true);
-		define('ADMIN_LANGS', 'en'); // administration panel languages
+		define('ADMIN_LANGS', 'en,es,pl'); // administration panel languages
 
 
 

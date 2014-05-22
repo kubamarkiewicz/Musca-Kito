@@ -5,7 +5,7 @@
 	<fieldset>
 		<legend>{t section="$modul"}Section{/t}</legend>
 		{foreach $sections as $section}
-			<p><a href="{$musca_url}/musca_translation/block/{$section}/{$lang_start}/{$lang_end}">{$section}</a></p>
+			<p><a href="{$musca_url}/{$modul}/block/{$section}/{$lang_start}/{$lang_end}">{$section}</a></p>
 		{/foreach}
 	</fieldset>
 
@@ -53,7 +53,7 @@
 				var section = $('#section').val();
 				var lang_start = $('#lang_start').val();
 				var lang_end = $('#lang_end').val();
-				var url = '{$musca_url}/musca_translation/block/'+section+'/'+lang_start+'/'+lang_end;
+				var url = '{$musca_url}/{$modul}/block/'+section+'/'+lang_start+'/'+lang_end;
 				document.location = url;
 			});
 		});

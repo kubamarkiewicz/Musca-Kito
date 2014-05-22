@@ -1,6 +1,6 @@
 	
 	<ul class="sf-menu">
-		<li><a href='{$musca_url}/marker'>Stories</a></li>
+		<li><a href='{$musca_url}/post'>Posts</a></li>
 		<li><a href='{$musca_url}/musca_translation/block'>{t section="musca_translation_admin"}Translations{/t}</a></li>
 		<li>
 			<a href="javascript:" class="no-link">{t section="menu"}Administration{/t}</a>

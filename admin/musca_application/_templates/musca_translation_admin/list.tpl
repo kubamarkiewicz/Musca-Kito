@@ -5,7 +5,7 @@
 	<fieldset>
 		<legend>{t section="$modul"}Section{/t}</legend>
 		{foreach $sections as $section}
-			<p><a href="{$musca_url}/musca_translation_admin/block/{$section}/{$lang_start}/{$lang_end}">{$section}</a></p>
+			<p><a href="{$musca_url}/{$modul}/block/{$section}/{$lang_start}/{$lang_end}">{$section}</a></p>
 		{/foreach}
 	</fieldset>
 
@@ -28,7 +28,7 @@
 					<th>{t section="$modul"}Language{/t}</th>
 					<td>
 						<select name="search[lang]">
-						{foreach from=$langs item=lang key=k}
+						{foreach from=$web_langs item=lang key=k}
 							<option value="{$lang}">{$lang}</option>
 						{/foreach}
 						</select>
@@ -53,12 +53,8 @@
 				var section = $('#section').val();
 				var lang_start = $('#lang_start').val();
 				var lang_end = $('#lang_end').val();
-				var url = '{$musca_url}/musca_translation_admin/block/'+section+'/'+lang_start+'/'+lang_end;
+				var url = '{$musca_url}/{$modul}/block/'+section+'/'+lang_start+'/'+lang_end;
 				document.location = url;
-			});
-
-			$('#form_admin input[name="admin"]').change(function(){
-				$('#form_admin').submit();
 			});
 		});
 
@@ -67,4 +63,3 @@
 	{include file="grid.tpl"}
 
 </div>
-

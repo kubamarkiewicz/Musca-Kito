@@ -87,6 +87,9 @@
 			#logout a.logout			{ }
 			#logout a					{ color: #D3D3D3; }
 			#logout .title				{ float: left; color: #fff; text-transform: capitalize; text-shadow: #fff 0px 0px 5px; font-size: 120%; }
+			#logout .lang				{ }
+			#logout .lang a				{ padding: 0 1px }
+			#logout .lang span			{ font-weight: bold; padding: 0 3px }
 
 		/* MENU  */
 			#menu       { height: 36px; margin-bottom: 20px; background-color: #595959; }

@@ -8,11 +8,11 @@
 	<input type="hidden" name="MAX_FILE_SIZE" value="{$MAX_FILE_SIZE}" />
 	<div id="tabs">
 		<ul>
-			{foreach from=$langs item=iso key=k}
+			{foreach from=$translations_langs item=iso key=k}
 		    <li><a href="#{$iso}"><span>{t section="$modul"}{$iso}{/t}</span></a></li>
 			{/foreach}
 		</ul>
-		{foreach from=$langs item=iso key=k}
+		{foreach from=$translations_langs item=iso key=k}
 		<div id="{$iso}">
 			<fieldset>
 			    <!-- <legend>{t page="admin"}{$iso}{/t}</legend> -->

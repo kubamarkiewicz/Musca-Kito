@@ -4,6 +4,7 @@
 	{
 		private $db;
 		public $uploadDir = '/files'; // relative to CONTENT_DIR
+		public $table = 'musca_i18n_admin';
 
 		function __construct($db)
 		{
@@ -33,26 +34,24 @@
 		        $insert['lang'] = $lang;
 		        $insert['value'] = $val;
 
-		        $id_exist = $this->db->getOne("SELECT id_i18n FROM ".PRE."musca_i18n_admin WHERE section='".$data['section']."' AND tag='".$data['tag']."' AND lang='".$lang."'");
-		        if (!empty($id_exist)) $this->db->update(PRE.'musca_i18n_admin', $insert, "id_i18n=$id_exist");
-				else $this->db->insert(PRE.'musca_i18n_admin', $insert);
+		        $id_exist = $this->db->getOne("SELECT id_i18n FROM ".PRE.$this->table." WHERE section='".$data['section']."' AND tag='".$data['tag']."' AND lang='".$lang."'");
+		        if (!empty($id_exist)) $this->db->update(PRE.$this->table, $insert, "id_i18n=$id_exist");
+				else $this->db->insert(PRE.$this->table, $insert);
 			}
 		}
 		
-		function last() { return $this->db->getOne("SELECT MAX(id_i18n_lang) FROM ".PRE."musca_i18n_lang_admin"); }
-
 		function get($id=false)
 		{
 			if (!$id) die('No existe ID');
-			$elem = $this->db->getRow("SELECT * FROM ".PRE."musca_i18n_admin WHERE id_i18n=$id");
-			$elem['langs'] = $this->db->getAssoc("SELECT lang, value FROM ".PRE."musca_i18n_admin WHERE section='".$elem['section']."' AND tag='".$elem['tag']."'");
+			$elem = $this->db->getRow("SELECT * FROM ".PRE.$this->table." WHERE id_i18n=$id");
+			$elem['langs'] = $this->db->getAssoc("SELECT lang, value FROM ".PRE.$this->table." WHERE section='".$elem['section']."' AND tag='".$elem['tag']."'");
 
 			return $elem;
 		}
 		
 		function getSections()
 		{
-		    return $this->db->getAssoc("SELECT DISTINCT section, section FROM ".PRE."musca_i18n_admin ORDER BY section");
+		    return $this->db->getAssoc("SELECT DISTINCT section, section FROM ".PRE.$this->table." ORDER BY section");
 		}
 		
 		private function is_md5($var) {
@@ -60,7 +59,7 @@
 		}
 
 
-		function uploadFile($arrayName, $arrayKey)
+		function uploadFile($arrayName, $arrayKey, $arrayKey2)
 		{
 			// print_r($_FILES); exit;
 
@@ -68,7 +67,7 @@
 			$filePath = MUSCA_PATH.CONTENT_DIR.$this->uploadDir;
 			if (!file_exists($filePath)) mkdir($filePath);
 
-			$filename = Musca_Utils_Upload::uploadFile($arrayName, $filePath, $arrayKey);
+			$filename = Musca_Utils_Upload::uploadFile($arrayName, $filePath, $arrayKey, $arrayKey2);
 			if (!$filename) return;
 
 			$fileURL = MUSCA_URL.CONTENT_DIR.$this->uploadDir.'/'.basename($filename);
@@ -77,7 +76,7 @@
 		}
 
 
-		function uploadImage($arrayName, $arrayKey, $parameters)
+		function uploadImage($arrayName, $arrayKey, $arrayKey2, $parameters)
 		{
 			// print_r($_FILES); exit;
 
@@ -85,7 +84,7 @@
 			$imagePath = MUSCA_PATH.CONTENT_DIR.$this->uploadDir;
 			if (!file_exists($imagePath)) mkdir($imagePath);
 
-			$filename = Musca_Utils_Upload::uploadFile($arrayName, $imagePath, $arrayKey);
+			$filename = Musca_Utils_Upload::uploadFile($arrayName, $imagePath, $arrayKey, $arrayKey2);
 			if (!$filename) return;
 
 			// resize image
@@ -108,7 +107,7 @@
 
 		function getParametersByTag($tag)
 		{
-			$sql = "SELECT * FROM ".PRE."musca_i18n_admin WHERE tag='".mysql_real_escape_string($tag)."' LIMIT 1";
+			$sql = "SELECT * FROM ".PRE.$this->table." WHERE tag='".mysql_real_escape_string($tag)."' LIMIT 1";
 			return $this->db->getRow($sql);
 		}
 	}

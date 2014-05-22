@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend>{t section="$modul"}Section{/t}</legend>
 		{foreach $sections as $item}
-			<p><a href="{$musca_url}/musca_translation/block/{$item}" {if $item==$section}style="font-weight:bold"{/if}>{$item}</a></p>
+			<p><a href="{$musca_url}/{$modul}/block/{$item}" {if $item==$section}style="font-weight:bold"{/if}>{$item}</a></p>
 		{/foreach}
 	</fieldset>
 
@@ -37,12 +37,12 @@
 			<input type="hidden" name="MAX_FILE_SIZE" value="{$MAX_FILE_SIZE}" />
 
 			<div id="tabs_basic_i18n">
-				<ul {if $web_langs|@count <= 1}style="display:none"{/if}>
-					{foreach from=$web_langs item=iso key=k}
+				<ul {if $translations_langs|@count <= 1}style="display:none"{/if}>
+					{foreach from=$translations_langs item=iso key=k}
 				    <li><a href="#{$iso}"><span>{t page="admin"}{$iso}{/t}</span></a></li>
 					{/foreach}
 				</ul>
-				{foreach from=$web_langs item=iso key=k}
+				{foreach from=$translations_langs item=iso key=k}
 				<div id="{$iso}">
 					<fieldset>
 						<table id="block">
