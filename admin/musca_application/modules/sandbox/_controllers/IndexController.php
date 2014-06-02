@@ -2,7 +2,7 @@
 
 	/* modified 2013.11.17 */
 
-	class Index extends App_Controller
+	class IndexController extends App_Controller
 	{
 		protected $modul = 'sandbox';
 		protected $module_title = 'Sandbox';
@@ -23,28 +23,28 @@
 	}
 		
 
-	function __construct($db=null, $i18n=null)
+	function __construct($db, $i18n, $auth)
 	{
-		parent::__construct($db, $i18n);
-		$this->smarty->assign('MAX_FILE_SIZE', Musca_Utils_Upload::maxUpload());
-		$this->smarty->assign('MAX_FILE_SIZE_HUMAN', Musca_Utils_Upload::maxUpload(1));
+		parent::__construct($db, $i18n, $auth);
+		$this->template->assign('MAX_FILE_SIZE', Musca_Utils_Upload::maxUpload());
+		$this->template->assign('MAX_FILE_SIZE_HUMAN', Musca_Utils_Upload::maxUpload(1));
 	}
 
 	
 
-	function first()
+	function indexAction()
 	{
 		$this->clearEditIds();
 
-		$this->smarty->assign('colModel', json_encode($this->flex_col_model));
-		$this->smarty->assign('sortname', $this->flex_sortname);
-		$this->smarty->assign('sortorder', $this->flex_sortorder);
-		$this->smarty->assign('modul', $this->modul);
+		$this->template->assign('colModel', json_encode($this->flex_col_model));
+		$this->template->assign('sortname', $this->flex_sortname);
+		$this->template->assign('sortorder', $this->flex_sortorder);
+		$this->template->assign('modul', $this->modul);
 		$this->output('list.tpl');
 	}
 
 
-	function edit($id = null, $saved = false)
+	function editAction($id = null, $saved = false)
 	{
 		$this->setEditIds($id, $this->modul, $this->flex_table, 'id', 'name');
 
@@ -57,15 +57,15 @@
 			$this->redirect('/'.$this->modul.'/edit/'.$id.'/saved');
 		}
 
-		$this->smarty->assign('id', $id);
-		$this->smarty->assign('elem', $model->get($id));
-		$this->smarty->assign('model', $model);
-		$this->smarty->assign('saved', $saved);
+		$this->template->assign('id', $id);
+		$this->template->assign('elem', $model->get($id));
+		$this->template->assign('model', $model);
+		$this->template->assign('saved', $saved);
 		$this->output('edit.tpl');
 	}
 
 
-	function order()
+	function orderAction()
 	{
 		$model = new $this->model_class($this->db);
 
@@ -73,9 +73,9 @@
 		{
 			// print_r($_POST); exit;
 			$elem = $model->saveOrder($_POST);
-			$this->smarty->assign('saved', true);
+			$this->template->assign('saved', true);
 		}
 
-		$this->smarty->assign('elem', $model->getOrder());
+		$this->template->assign('elem', $model->getOrder());
 		$this->output('order.tpl');
 	}

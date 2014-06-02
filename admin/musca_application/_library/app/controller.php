@@ -1,8 +1,8 @@
 <?php
 
-	/* modified 2013.11.25 */
+	/* modified 2014.06.02 */
 
-	class App_Controller extends App_Auth
+	class App_Controller extends Musca_Controller
 	{
 		protected $modul = '';
 		protected $module_title = '';
@@ -14,8 +14,10 @@
 		protected $flex_buttons;
 
 
-		function __construct($db=null, $i18n=null)
+		function __construct($db, $i18n, $auth)
 		{
+			$auth->authorize();
+
 			parent::__construct($db, $i18n);
 
 			$this->flex_table = PRE.$this->flex_table;
@@ -29,38 +31,30 @@
 				$this->flex_col_model[$key]['display'] = $this->i18n->t($value['display'], 'grid');
 			}
 
-			$this->smarty->assign('MAX_FILE_SIZE', Musca_Utils_Upload::maxUpload());
-			$this->smarty->assign('MAX_FILE_SIZE_HUMAN', Musca_Utils_Upload::maxUpload(1));
+			$this->template->assign('MAX_FILE_SIZE', Musca_Utils_Upload::maxUpload());
+			$this->template->assign('MAX_FILE_SIZE_HUMAN', Musca_Utils_Upload::maxUpload(1));
 			
-			$this->smarty->assign('web_langs', explode(',', WEB_LANGS));
+			$this->template->assign('web_langs', explode(',', WEB_LANGS));
 		}	
 
 		protected function output($tpl=false, $menu=false)
 		{
+			if ($menu) $this->template->assign('menu', $menu);
+			if ($tpl) $this->template->assign('tpl', $tpl);
 
-			// auth
-			if (!$this->getAuth($this->modul)) 
-			{
-				header('location: ' . MUSCA_URL . '/auth');
-				exit;
-			}
-
-			if ($menu) $this->smarty->assign('menu', $menu);
-			if ($tpl) $this->smarty->assign('tpl', $tpl);
-
-			if (strpos($tpl,'list')!==false) $this->smarty->assign('list', true);
-			$this->smarty->assign('modul', $this->modul);
-			if ($this->module_title) $this->smarty->assign('module_title', $this->module_title);
-			$this->smarty->assign('buttons', $this->flex_buttons);
+			if (strpos($tpl,'list')!==false) $this->template->assign('list', true);
+			$this->template->assign('modul', $this->modul);
+			if ($this->module_title) $this->template->assign('module_title', $this->module_title);
+			$this->template->assign('buttons', $this->flex_buttons);
 			
-			$this->smarty->assign('wysiwygDisabled', Musca_Config::get('wysiwyg', 'disabled'));
+			$this->template->assign('wysiwygDisabled', Musca_Config::get('wysiwyg', 'disabled'));
 
-			$this->smarty->display('layout.tpl');
+			$this->template->display('layout.tpl');
 		}
 		
-		function flexGrid() { echo $this->flexJson($this->flex_table, $this->flex_fields, $this->flex_where); }
+		public function flexGridAction() { echo $this->flexJson($this->flex_table, $this->flex_fields, $this->flex_where); }
 		
-		function flexJson($table=false, $fields=false, $where='1=1')
+		protected function flexJson($table=false, $fields=false, $where='1=1')
 		{
 			$page = !empty($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 			$rp = !empty($_REQUEST['rp']) ? $_REQUEST['rp'] : 10;
@@ -122,7 +116,7 @@
 			return '{page: '.$page.', total: '.$total.', rows: ['.implode(',', $rows).']}';
 		}
 
-		function del()
+		public function delAction()
 		{
 			$this->db->delete($this->flex_table, $this->db->getPKeyColumn($this->flex_table) . " IN (".rtrim($_POST['ids'],",").")");
 			unset($_SESSION['edit_ids'][$this->modul]);
@@ -147,7 +141,7 @@
 		}
 		
 
-		function add()
+		public function addAction()
 		{
 			return $this->edit();
 		}

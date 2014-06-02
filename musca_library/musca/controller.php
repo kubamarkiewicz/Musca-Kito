@@ -1,13 +1,13 @@
 <?php
 	
-	/* modified 2014.01.15 */
+	/* modified 2014.06.02 */
 
 	class Musca_Controller
 	{
 
-		public $smarty;
 		public $db;
 		public $i18n;
+		public $template;
 		public $config;
 
 
@@ -17,32 +17,32 @@
 			$this->i18n = $i18n;
 
 			// SMARTY CONFIG --------------------------- >>
-				$this->smarty = new Musca_Smarty($this->i18n);
-// 				$this->smarty->caching = false;
-// 				$this->smarty->force_compile = false;
-// 				$this->smarty->compile_check = false;
-// 				$this->smarty->compile_id = $this->lang;
-	            $this->smarty->error_reporting = DEBUG_MODE;
+				$this->template = new Musca_Smarty($this->i18n);
+// 				$this->template->caching = false;
+// 				$this->template->force_compile = false;
+// 				$this->template->compile_check = false;
+// 				$this->template->compile_id = $this->lang;
+	            $this->template->error_reporting = DEBUG_MODE;
 
-				$this->smarty->template_dir = MUSCA_PATH . APP_DIR . TEMPLATES_DIR . DS;
-				$this->smarty->compile_dir = MUSCA_PATH . APP_DIR . DS . 'compile' . DS;
-				$this->smarty->cache_dir = MUSCA_PATH . APP_DIR . DS . 'cache' . DS;
+				$this->template->template_dir = MUSCA_PATH . APP_DIR . TEMPLATES_DIR . DS;
+				$this->template->compile_dir = MUSCA_PATH . APP_DIR . DS . 'compile' . DS;
+				$this->template->cache_dir = MUSCA_PATH . APP_DIR . DS . 'cache' . DS;
 			// ------------------------------------------- >>
 
 			// DEFINE PATHS --------- >>
-				$this->smarty->assign('musca_url', MUSCA_URL);
-				$this->smarty->assign('content_dir', CONTENT_DIR);
+				$this->template->assign('musca_url', MUSCA_URL);
+				$this->template->assign('content_dir', CONTENT_DIR);
 			// ------------------------------------ >>
 
 			// i18n	
 			if ($this->i18n)
 			{
-				$this->smarty->assign('langs', $this->i18n->getLangs());
-				$this->smarty->assign('lang', $this->i18n->getLang());
+				$this->template->assign('langs', $this->i18n->getLangs());
+				$this->template->assign('lang', $this->i18n->getLang());
 			}
 
 			// set controller name as a section by default
-			$this->smarty->assign('section', strtolower(get_class($this)));
+			$this->template->assign('section', strtolower(get_class($this)));
 			
 			$this->config = new Musca_Config($db);
 		}
@@ -71,10 +71,10 @@
 			if (!file_exists(MUSCA_PATH.APP_DIR.TEMPLATES_DIR.'/error.tpl')) die("<pre>$title\n$message");
 
 			// display error page
-			$this->smarty->assign('message', $message);
-			$this->smarty->assign('title', $title);
-			$this->smarty->assign('section', 'error');
-			$this->smarty->display('error.tpl');
+			$this->template->assign('message', $message);
+			$this->template->assign('title', $title);
+			$this->template->assign('section', 'error');
+			$this->template->display('error.tpl');
 			die();
 		}
 

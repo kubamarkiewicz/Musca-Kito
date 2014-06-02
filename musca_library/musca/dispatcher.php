@@ -4,21 +4,33 @@
 
 	class Musca_Dispatcher
 	{
+        protected $db;
+        protected $i18n;
+
+		protected $arguments;
 		private $uri;
 		private $uri_real;
         public $ar_folder_web;
         protected $controllersPath;
         protected $modulesPath;
-        protected $db;
-        protected $i18n;
+
+        protected $controllerSuffix = 'Controller';
+        protected $actionSuffix = 'Action';
 		
-		function __construct($uri_url, $db=null, $i18n=null)
+		function __construct($db=null, $i18n=null)
 		{
+			$this->db = $db;
+			$this->i18n = $i18n;
+
+			$this->arguments = func_get_args();
 			$this->controllersPath = MUSCA_PATH . APP_DIR . CONTROLLERS_DIR;
 			$this->modulesPath = MUSCA_PATH . APP_DIR . MODULES_DIR . DS;
-
-			$this->uri_real = $uri_url;
-			$this->uri = array_slice(explode('/', $uri_url),1);
+		}
+		
+		function ignite($url)
+		{
+			$this->uri_real = $url;
+			$this->uri = array_slice(explode('/', $url),1);
 
 			foreach ($this->uri as $k => $v)
 			{
@@ -26,12 +38,7 @@
 				$this->uri[$k] = $tmp[0];
 			}
 
-			$this->db = $db;
-			$this->i18n = $i18n;
-		}
-		
-		function igniter()
-		{
+
 			$i = 0;
 
 			$doc_root = $_SERVER['DOCUMENT_ROOT'];
@@ -114,19 +121,22 @@
 			}
 
 			// cargar el controlador
+			$controller = ucfirst($controller).$this->controllerSuffix;
 			if($module && is_file($this->modulesPath.$module.CONTROLLERS_DIR.DS.$controller.'.php')) require_once($this->modulesPath.$module.CONTROLLERS_DIR.DS.$controller.'.php');
 			else require_once($this->controllersPath.$dir.$controller.'.php');
-			$dispatcher = new $controller($this->db, $this->i18n);
+
+			//$dispatcher = new $controller($this->db, $this->i18n);
+			$class = new ReflectionClass($controller);
+			$dispatcher = $class->newInstanceArgs($this->arguments);
 
 			// include module template path
-			if($module)
-				$dispatcher->smarty->addTemplateDir($this->modulesPath . $module . TEMPLATES_DIR . DS);
+			if ($module) $dispatcher->template->addTemplateDir($this->modulesPath . $module . TEMPLATES_DIR . DS);
 
 			// cargar el metodo
-			$action = 'first';
+			$action = 'index';
 			if (isset($this->uri[$i]))
 			{
-				if (method_exists($controller, $this->uri[$i])) $action = array_shift($this->uri);
+				if (method_exists($controller, $this->uri[$i].$this->actionSuffix)) $action = array_shift($this->uri);
 				
 				// if controler does not exist but exists template then display template
 				// elseif (($controller == 'index') && file_exists(MUSCA_PATH . APP_DIR . TEMPLATES_DIR . DS . $this->uri[$i].'.tpl'))
@@ -140,7 +150,7 @@
 			// echo 'module:'.$module.'/controller:'.$controller.'/action:'.$action;
 			// print_r($this->uri); exit;
 
-			call_user_func_array(array($dispatcher, $action), $this->uri);
+			call_user_func_array(array($dispatcher, $action.$this->actionSuffix), $this->uri);
 		}
 
 		private function routes()

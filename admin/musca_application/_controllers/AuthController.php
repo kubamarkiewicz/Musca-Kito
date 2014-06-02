@@ -1,12 +1,20 @@
 <?php
 
-	/* modified 2014.01.10 */
+	/* modified 2014.05.29 */
 	
-	class App_Auth extends Musca_Controller
+	class AuthController extends Musca_Controller
 	{
-        private $utils_db;
 
-		function auth()
+        private $utils_db;
+        protected $logic;
+
+		function __construct($db, $i18n, $auth)
+		{
+			$this->logic = $auth;
+			parent::__construct($db, $i18n);
+		}
+
+		function indexAction()
 		{
 			if (isset($_POST['send']))
 			{
@@ -19,22 +27,18 @@
 				$auth = $this->db->getRow($sql);
 				if (!empty($auth))
 				{
-					$_SESSION[CAPSULE]['auth'] = $auth;
+					$this->logic->login($auth);
 					header('Location: ' . MUSCA_URL);
 				}
-				$this->smarty->assign('elems', $_POST);
+				$this->template->assign('elems', $_POST);
 			}
-			$this->smarty->display('auth.tpl');
+			$this->template->display('auth.tpl');
 		}
 		
-		function getAuth($modul=false)
+		function logoutAction()
 		{
-			if (!empty($_SESSION[CAPSULE]['auth']['id_auth'])) return $_SESSION[CAPSULE]['auth'];
-		}
-		
-		function logout()
-		{
-			unset($_SESSION[CAPSULE]['auth']);
+			$this->logic->logout();
 			header('Location: ' . MUSCA_URL);
 		}
+		
 	}

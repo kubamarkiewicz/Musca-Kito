@@ -1,6 +1,6 @@
 <?php
 
-	class Index extends App_Controller
+	class IndexController extends App_Controller
 	{
 		protected $modul = 'post';
 		protected $module_title = 'Posts';
@@ -18,24 +18,24 @@
         protected $flex_class = array('published'=>'bool');
 		
 
-		function __construct($db=null, $i18n=null)
+		function __construct($db, $i18n, $auth)
 		{
-			parent::__construct($db, $i18n);
+			parent::__construct($db, $i18n, $auth);
 		}
 		
 
-		function first()
+		function indexAction()
 		{
 			$this->clearEditIds();
-			$this->smarty->assign('colModel', json_encode($this->flex_col_model));
-			$this->smarty->assign('sortname', $this->flex_sortname);
-			$this->smarty->assign('sortorder', $this->flex_sortorder);
-			$this->smarty->assign('modul', $this->modul);
+			$this->template->assign('colModel', json_encode($this->flex_col_model));
+			$this->template->assign('sortname', $this->flex_sortname);
+			$this->template->assign('sortorder', $this->flex_sortorder);
+			$this->template->assign('modul', $this->modul);
 			$this->output('list.tpl');
 		}
 
 
-		function edit($id = null, $saved = false)
+		function editAction($id = null, $saved = false)
 		{
 			$this->setEditIds($id, $this->modul, $this->flex_table, 'id', 'name');
 
@@ -48,16 +48,16 @@
 				$this->redirect('/'.$this->modul.'/edit/'.$id.'/saved');
 			}
 
-			$this->smarty->assign('id', $id);
-			$this->smarty->assign('elem', $model->get($id));
-			$this->smarty->assign('fieldsConfig', $model->fieldsConfig);
-			$this->smarty->assign('galleryConfig', $model->galleryConfig);
-			$this->smarty->assign('saved', $saved);
+			$this->template->assign('id', $id);
+			$this->template->assign('elem', $model->get($id));
+			$this->template->assign('fieldsConfig', $model->fieldsConfig);
+			$this->template->assign('galleryConfig', $model->galleryConfig);
+			$this->template->assign('saved', $saved);
 			$this->output('edit.tpl');
 		}
 
 
-		function order()
+		function orderAction()
 		{
 			$model = new Model_Post($this->db);
 
@@ -65,14 +65,14 @@
 			{
 				// print_r($_POST); exit;
 				$elem = $model->saveOrder($_POST);
-				$this->smarty->assign('saved', true);
+				$this->template->assign('saved', true);
 			}
 
-			$this->smarty->assign('elem', $model->getOrder());
+			$this->template->assign('elem', $model->getOrder());
 			$this->output('order.tpl');
 		}
 
-		function del()
+		function delAction()
 		{
 			$model = new Model_Post($this->db);
 			if ($ids = explode(',', $_POST['ids'])) foreach ($ids as $id) $model->delete($_POST['ids']);

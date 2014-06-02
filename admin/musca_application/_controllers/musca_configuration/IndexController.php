@@ -1,6 +1,6 @@
 <?php
 
-	class Index extends App_Controller
+	class IndexController extends App_Controller
 	{
 		protected $flex_table = 'musca_config';
 		protected $flex_fields = 'id_config, section, name, value, user_show';
@@ -17,28 +17,28 @@
 		protected $modul = 'musca_configuration';
 		protected $module_title = 'Configuration';
 		
-		function first()
+		function indexAction()
 		{
-			$this->smarty->assign('colModel', json_encode($this->flex_col_model));
-			$this->smarty->assign('sortname', $this->flex_sortname);
-			$this->smarty->assign('sortorder', $this->flex_sortorder);
-			$this->smarty->assign('modul', $this->modul);
+			$this->template->assign('colModel', json_encode($this->flex_col_model));
+			$this->template->assign('sortname', $this->flex_sortname);
+			$this->template->assign('sortorder', $this->flex_sortorder);
+			$this->template->assign('modul', $this->modul);
 			$this->output($this->modul.'/list.tpl', 0);
 		}
 		
-		function add()
+		function addAction()
 		{
 			if (isset($_POST['send']))
 			{
 				$admin = new Model_Musca_Configuration($this->db);
 				$elem = $admin->save($_POST);
-				$this->smarty->assign('elem', $elem);
-				$this->smarty->assign('saved', true);
+				$this->template->assign('elem', $elem);
+				$this->template->assign('saved', true);
 			}
 			$this->output($this->modul.'/edit.tpl', 0);
 		}
 
-		function edit($id=false)
+		function editAction($id=false)
 		{
 			$this->setEditIds($id, $this->modul, $this->flex_table, 'id_config', 'name');
 
@@ -46,23 +46,23 @@
 			if (isset($_POST['send']))
 			{
 				$admin->update($_POST, $id);
-				$this->smarty->assign('saved', true);
+				$this->template->assign('saved', true);
 			}
 			if (!$id) $this->first();
 			$elem = $admin->get($id);
 
-			$this->smarty->assign('elem', $elem);
-			$this->smarty->assign('id',$id);
+			$this->template->assign('elem', $elem);
+			$this->template->assign('id',$id);
 			$this->output($this->modul.'/edit.tpl', 1);
 		}
 
 
-		function del()
+		function delAction()
 		{
 			if (!$this->getAuth($this->modul) || !isset($_POST['ids'])) die();
 			$this->db->delete($this->flex_table, "id_config IN (".rtrim($_POST['ids'],",").")");
 		}
 
-		function flexGrid() { parent::flexGrid(); }
+		function flexGridAction() { parent::flexGrid(); }
 
 	}

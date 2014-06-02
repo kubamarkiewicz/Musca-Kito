@@ -1,6 +1,6 @@
 <?php
 
-	class Index extends App_Controller
+	class IndexController extends App_Controller
 	{
 		protected $modul = 'musca_translation';
 		protected $module_title = 'Translations';
@@ -20,9 +20,9 @@
         protected $flex_sortorder = 'ASC';
 		
 
-		function __construct($db, $i18n)
+		function __construct($db, $i18n, $auth)
 		{
-			parent::__construct($db, $i18n);
+			parent::__construct($db, $i18n, $auth);
 
 			$this->flex_buttons = "buttons : [ {name: '".$this->i18n->t('Edit', 'grid')."', bclass: 'edit', onpress: test}, {name: '".$this->i18n->t('Delete', 'grid')."', bclass: 'delete', onpress: test}, {name: '".$this->i18n->t('Select all', 'grid')."', bclass : 'select', onpress : test}, {name: '".$this->i18n->t('Deselect all', 'grid')."', bclass : 'des-select', onpress : test} ],";
 		}
@@ -34,26 +34,26 @@
 		}
 
 
-		function first()
+		function indexAction()
 		{	
-			$this->smarty->assign('colModel', json_encode($this->flex_col_model));
-			$this->smarty->assign('sortname', $this->flex_sortname);
-			$this->smarty->assign('sortorder', $this->flex_sortorder);
-			$this->smarty->assign('modul', $this->modul);
+			$this->template->assign('colModel', json_encode($this->flex_col_model));
+			$this->template->assign('sortname', $this->flex_sortname);
+			$this->template->assign('sortorder', $this->flex_sortorder);
+			$this->template->assign('modul', $this->modul);
 
-			$this->smarty->assign('translations_langs', $this->getLangs());
+			$this->template->assign('translations_langs', $this->getLangs());
 			$model = new Model_Musca_Translation($this->db);
-			$this->smarty->assign('sections', $model->getSections());
+			$this->template->assign('sections', $model->getSections());
 			
 			$this->output($this->modul.'/list.tpl', 0);
 		}
 		
-		function add()
+		function addAction()
 		{
 			$this->edit($this->db->getOne("SELECT MAX(id_i18n) FROM ".PRE.$this->flex_table)+1);
 		}
 
-		function edit($id=false)
+		function editAction($id=false)
 		{
 			$this->setEditIds($id, $this->modul, $this->flex_table, 'id_i18n', 'section');
 
@@ -61,31 +61,31 @@
 			if (isset($_POST['send']))
 			{
 				$model->save($_POST, $id);
-				$this->smarty->assign('saved', true);
+				$this->template->assign('saved', true);
 			}
 			if (!$id) $this->first();
 			$elem = $model->get($id);
 
-			$this->smarty->assign('elem', $elem);
-			$this->smarty->assign('id',$id);
-			$this->smarty->assign('translations_langs', $this->getLangs());
+			$this->template->assign('elem', $elem);
+			$this->template->assign('id',$id);
+			$this->template->assign('translations_langs', $this->getLangs());
 			$this->output($this->modul.'/edit.tpl', 1);
 		}
 		
-		function block($section=false)
+		function blockAction($section=false)
 		{
 			$section = $this->db->link->real_escape_string($section);
 
 			$langs =  $this->getLangs();
-			$this->smarty->assign('translations_langs', $langs);
+			$this->template->assign('translations_langs', $langs);
 
 			$model = new Model_Musca_Translation($this->db);
 			$sections = $model->getSections();
-			$this->smarty->assign('sections', $sections);
+			$this->template->assign('sections', $sections);
 
 		    if (!$section) $section = current($sections);
 		    $section = addslashes($section);
-		    $this->smarty->assign('section', $section);
+		    $this->template->assign('section', $section);
 
 			if(!empty($_POST['send']))
 			{
@@ -129,7 +129,7 @@
 					}
 
 				}
-				$this->smarty->assign('saved', true);
+				$this->template->assign('saved', true);
 			}
 		    
 		    $sql = "SELECT * FROM ".PRE.$this->flex_table." WHERE section='$section' ORDER BY id_i18n";
@@ -140,19 +140,19 @@
 		    	$return[$item['lang']][$item['tag']] = $item;
 		    }
 		    // print_r($return); exit;
-		    $this->smarty->assign('return', $return);
+		    $this->template->assign('return', $return);
 
 		    $this->output($this->modul.'/block.tpl', 0);
 		}
 
 
-		function del()
+		function delAction()
 		{
 			if (!$this->getAuth($this->modul) || !isset($_POST['ids'])) die();
 			$del = $this->db->getAssoc("SELECT tag, section FROM ".PRE.$this->flex_table." WHERE id_i18n IN (".rtrim($_POST['ids'],",").")");
 			foreach ($del as $tag => $section) $this->db->delete($this->flex_table, "section='$section' AND tag='$tag'");
 		}
 
-		function flexGrid() { parent::flexGrid(); }
+		function flexGridAction() { parent::flexGrid(); }
 
 	}

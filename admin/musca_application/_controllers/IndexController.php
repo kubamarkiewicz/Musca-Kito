@@ -1,8 +1,8 @@
 <?php
 
-	class Index extends App_Controller
+	class IndexController extends App_Controller
 	{
-		function first()
+		function IndexAction()
 		{
 			// $this->redirect('/marker');
 			$this->output();
