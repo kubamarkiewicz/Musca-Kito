@@ -44,10 +44,11 @@
 
 		define('DS', DIRECTORY_SEPARATOR);
 		define('APP_DIR', strrchr(dirname(__FILE__), DS));
-		define('CONTROLLERS_DIR', '/_controllers');
-		define('LIBRARY_DIR', '/_library');
-		define('TEMPLATES_DIR', '/_templates');
+		define('CONTROLLERS_DIR', '/controllers');
+		define('LIBRARY_DIR', '/library');
+		define('TEMPLATES_DIR', '/templates');
 		define('MODULES_DIR', '/modules');
+		define('STORAGE_DIR', '/storage');
 
 		define('MD5_SALT', md5(MUSCA_PATH));
 		define('CAPSULE', md5(MUSCA_PATH));
@@ -74,7 +75,7 @@
 		
 	// error log
 		ini_set('log_errors', 1);
-		ini_set('error_log', MUSCA_PATH.APP_DIR.'/log.txt');
+		ini_set('error_log', MUSCA_PATH.APP_DIR.STORAGE_DIR.'/log.txt');
 	// ------------------------------------- >>
 
 

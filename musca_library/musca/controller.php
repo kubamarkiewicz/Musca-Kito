@@ -25,8 +25,8 @@
 	            $this->template->error_reporting = DEBUG_MODE;
 
 				$this->template->template_dir = MUSCA_PATH . APP_DIR . TEMPLATES_DIR . DS;
-				$this->template->compile_dir = MUSCA_PATH . APP_DIR . DS . 'compile' . DS;
-				$this->template->cache_dir = MUSCA_PATH . APP_DIR . DS . 'cache' . DS;
+				$this->template->compile_dir = MUSCA_PATH . APP_DIR . STORAGE_DIR . DS . 'compile' . DS;
+				$this->template->cache_dir = MUSCA_PATH . APP_DIR . STORAGE_DIR . DS . 'cache' . DS;
 			// ------------------------------------------- >>
 
 			// DEFINE PATHS --------- >>

@@ -1,6 +1,6 @@
 <?php
 	
-	/* modified 2014.04.05 */
+	/* modified 2014.06.22 */
 
 	class Musca_Dispatcher
 	{
@@ -116,8 +116,8 @@
 				// echo $this->modulesPath.$module.CONTROLLERS_DIR.DS.$this->uri[$i].'.php';
 			if(isset($this->uri[$i]))
 			{
-				if ($module && is_file($this->modulesPath.$module.CONTROLLERS_DIR.DS.$this->uri[$i].'.php')) $controller = array_shift($this->uri);
-				elseif(is_file($this->controllersPath.$dir.$this->uri[$i].'.php')) $controller = array_shift($this->uri);
+				if ($module && is_file($this->modulesPath.$module.CONTROLLERS_DIR.DS.ucfirst($this->uri[$i]).$this->controllerSuffix.'.php')) $controller = array_shift($this->uri);
+				elseif(is_file($this->controllersPath.$dir.ucfirst($this->uri[$i]).$this->controllerSuffix.'.php')) $controller = array_shift($this->uri);
 			}
 
 			// cargar el controlador
