@@ -25,11 +25,11 @@ if(!$_SESSION[CAPSULE]['auth']) die('forbidden');
 
 $root = rtrim($_SERVER['DOCUMENT_ROOT'],'/'); // don't touch this parameter
 $base_url = "";  // base url of site (without final /). If you prefer relative urls leave empty
-$upload_dir = str_replace('\\', '/', str_replace(realpath($root), '', realpath('../..'.CONTENT_DIR.'/files'))).'/'; // path from base_url to base of upload folder (with start and final /)
-$current_path = '../..'.CONTENT_DIR.'/files/'; // relative path from filemanager folder to upload folder (with final /)
+$upload_dir = str_replace('\\', '/', str_replace(realpath($root), '', realpath('../..'.UPLOADS_DIR.'/files'))).'/'; // path from base_url to base of upload folder (with start and final /)
+$current_path = '../..'.UPLOADS_DIR.'/files/'; // relative path from filemanager folder to upload folder (with final /)
 
 //thumbs folder can't put inside upload folder
-$thumbs_base_path = '../..'.CONTENT_DIR.'/files/thumbs/'; // relative path from filemanager folder to thumbs folder (with final /)
+$thumbs_base_path = '../..'.UPLOADS_DIR.'/files/thumbs/'; // relative path from filemanager folder to thumbs folder (with final /)
 
 //------------------------------------------------------------------------------
 // YOU CAN COPY AND CHANGE THESE VARIABLES IN FOLDERS config.php FILES

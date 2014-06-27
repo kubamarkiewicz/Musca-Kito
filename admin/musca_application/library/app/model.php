@@ -239,7 +239,7 @@
 			$this->deleteFile($id, $field, $parameters);
 
 			// upload file
-			$filePath = MUSCA_PATH.CONTENT_DIR.$parameters['dir'];
+			$filePath = MUSCA_PATH.UPLOADS_DIR.$parameters['dir'];
 			if (!file_exists($filePath)) mkdir($filePath);
 
 			$filename = Musca_Utils_Upload::uploadFile($field, $filePath);
@@ -255,7 +255,7 @@
 		{
 			if (!$_POST[$field.'_del']) return;
 
-			$filePath = MUSCA_PATH.CONTENT_DIR.$parameters['dir'];
+			$filePath = MUSCA_PATH.UPLOADS_DIR.$parameters['dir'];
 			$elem = $this->get($id);
 			unlink($filePath.'/'.$elem[$field]);
 			$this->db->update($this->table, array($field => ''), $this->PKey().'='.$id);
@@ -266,7 +266,7 @@
 		protected function saveFileI18n($id, $field, $parameters)
 		{
 			// upload file
-			$filePath = MUSCA_PATH.CONTENT_DIR.$parameters['dir'];
+			$filePath = MUSCA_PATH.UPLOADS_DIR.$parameters['dir'];
 			if (!file_exists($filePath)) mkdir($filePath);
 
 			foreach ($_FILES['i18n']['name'][$field] as $iso => $file) 
@@ -290,7 +290,7 @@
 			$this->deleteImage($id, $field, $parameters);
 
 			// upload file
-			$imagePath = MUSCA_PATH.CONTENT_DIR.$parameters['dir'];
+			$imagePath = MUSCA_PATH.UPLOADS_DIR.$parameters['dir'];
 			if (!file_exists($imagePath)) mkdir($imagePath, 0777);
 
 			$filename = Musca_Utils_Upload::uploadFile($field, $imagePath);
@@ -325,7 +325,7 @@
 		{
 			if (!$_POST[$field.'_del']) return;
 
-			$imagePath = MUSCA_PATH.CONTENT_DIR.$parameters['dir'];
+			$imagePath = MUSCA_PATH.UPLOADS_DIR.$parameters['dir'];
 			$elem = $this->get($id);
 			unlink($imagePath.'/'.$elem[$field]);
 			$this->db->update($this->table, array($field => ''), $this->PKey().'='.$id);
@@ -342,7 +342,7 @@
 		{
 			if (!$config) return;
 
-			$galleryPath = MUSCA_PATH.CONTENT_DIR.$config['dir'];
+			$galleryPath = MUSCA_PATH.UPLOADS_DIR.$config['dir'];
 			if (!file_exists($galleryPath)) mkdir($galleryPath, 0777);
 			$galleryPath .= '/'.$id;
 			if (!file_exists($galleryPath)) mkdir($galleryPath, 0777);

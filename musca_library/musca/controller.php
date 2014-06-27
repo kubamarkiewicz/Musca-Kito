@@ -31,7 +31,7 @@
 
 			// DEFINE PATHS --------- >>
 				$this->template->assign('musca_url', MUSCA_URL);
-				$this->template->assign('content_dir', CONTENT_DIR);
+				$this->template->assign('uploads_dir', UPLOADS_DIR);
 			// ------------------------------------ >>
 
 			// i18n	

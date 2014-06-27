@@ -52,7 +52,7 @@
 		protected function saveFile($id, $field, $parameters)
 		{
 			// upload file
-			$filePath = MUSCA_PATH.CONTENT_DIR.$parameters['dir'];
+			$filePath = MUSCA_PATH.UPLOADS_DIR.$parameters['dir'];
 			if (!file_exists($filePath)) mkdir($filePath);
 
 			$filename = Musca_Utils_Upload::uploadFile($field, $filePath);

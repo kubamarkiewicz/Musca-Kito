@@ -3,7 +3,7 @@
 	class Model_Musca_Translation
 	{
 		private $db;
-		public $uploadDir = '/files'; // relative to CONTENT_DIR
+		public $uploadDir = '/files'; // relative to UPLOADS_DIR
 		public $table = 'musca_i18n';
 
 		function __construct($db)
@@ -64,13 +64,13 @@
 			// print_r($_FILES); exit;
 
 			// upload file
-			$filePath = MUSCA_PATH.CONTENT_DIR.$this->uploadDir;
+			$filePath = MUSCA_PATH.UPLOADS_DIR.$this->uploadDir;
 			if (!file_exists($filePath)) mkdir($filePath);
 
 			$filename = Musca_Utils_Upload::uploadFile($arrayName, $filePath, $arrayKey, $arrayKey2);
 			if (!$filename) return;
 
-			$fileURL = MUSCA_URL.CONTENT_DIR.$this->uploadDir.'/'.basename($filename);
+			$fileURL = MUSCA_URL.UPLOADS_DIR.$this->uploadDir.'/'.basename($filename);
 
 			return $fileURL;
 		}
@@ -81,7 +81,7 @@
 			// print_r($_FILES); exit;
 
 			// upload file
-			$imagePath = MUSCA_PATH.CONTENT_DIR.$this->uploadDir;
+			$imagePath = MUSCA_PATH.UPLOADS_DIR.$this->uploadDir;
 			if (!file_exists($imagePath)) mkdir($imagePath);
 
 			$filename = Musca_Utils_Upload::uploadFile($arrayName, $imagePath, $arrayKey, $arrayKey2);
@@ -99,7 +99,7 @@
 				$filename = basename($filename);
 			}
 
-			$fileURL = MUSCA_URL.CONTENT_DIR.$this->uploadDir.'/'.basename($filename);
+			$fileURL = MUSCA_URL.UPLOADS_DIR.$this->uploadDir.'/'.basename($filename);
 
 			return $fileURL;
 		}

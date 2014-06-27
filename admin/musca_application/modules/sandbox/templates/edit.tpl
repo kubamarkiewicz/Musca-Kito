@@ -88,7 +88,7 @@
 			    <td>
 					{if $elem.image}
 						<p>
-							<img src="{$musca_url}{$content_dir}{$model->fields.image.dir}/{$elem.image}" /><label class="aviso pointer"><input type="checkbox" name="image_del" value="1" /> {t section="$modul"}Delete image{/t}</label>
+							<img src="{$musca_url}{$uploads_dir}{$model->fields.image.dir}/{$elem.image}" /><label class="aviso pointer"><input type="checkbox" name="image_del" value="1" /> {t section="$modul"}Delete image{/t}</label>
 						</p>
 					{/if}
 					<p class="mensaje">
@@ -115,7 +115,7 @@
 			        {foreach $elem.gallery as $item}
 			            <div class="image_box">
                             <div class="image">
-                                <a href="{$musca_url}{$content_dir}{$model->gallery.dir}/{$elem.id}/{$item.image}" target="_blank"><img src="{$musca_url}{$content_dir}{$model->gallery.dir}/{$elem.id}/{$item.image}" /></a>
+                                <a href="{$musca_url}{$uploads_dir}{$model->gallery.dir}/{$elem.id}/{$item.image}" target="_blank"><img src="{$musca_url}{$uploads_dir}{$model->gallery.dir}/{$elem.id}/{$item.image}" /></a>
 							</div>
 							<div class="text_box">
 			                    <label class="aviso pos"><input type="text" size="2" name="gallery[{$item.id}][pos]" value="{$item.pos}" /> {t section="gallery"}Order{/t}</label>

@@ -73,7 +73,7 @@
 			    <td>
 					{if $elem.file}
 						<p>
-							<a href="{$musca_url}{$content_dir}{$fieldsConfig.file.dir}/{$elem.file}" target="_blank" />{$elem.file}</a>
+							<a href="{$musca_url}{$uploads_dir}{$fieldsConfig.file.dir}/{$elem.file}" target="_blank" />{$elem.file}</a>
 						</p>
 					{/if}
 					<p class="mensaje">

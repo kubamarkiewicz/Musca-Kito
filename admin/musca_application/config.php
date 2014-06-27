@@ -22,7 +22,7 @@
 
 	// directories relative to the front controller (index.php)
 		define('MUSCA_LIBRARY_DIR', '/../musca_library');
-		define('CONTENT_DIR', '/../content');
+		define('UPLOADS_DIR', '/../uploads');
 
 	// error reporting
 		define('DEBUG_MODE', true);
