@@ -1,6 +1,6 @@
 <?php
 
-	/* Musca App Front Controller */
+	/* Musca Front Controller */
 
 	require_once 'musca_application/config.php';
 

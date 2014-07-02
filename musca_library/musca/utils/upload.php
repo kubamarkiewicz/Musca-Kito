@@ -7,25 +7,24 @@
 	class Musca_Utils_Upload
 	{
 
-		static function uniqueFilename($archive_dir , $filename , $file_prefix='')
-		{
-			$filename = strtolower($filename);
-			$extension= substr( strrchr($filename, ".") ,1);
-			$name=str_replace(".".$extension,'',$filename);
+	    private function uniqueFilename($archive_dir, $filename)
+	    {
+	        $filename = strtolower($filename);
+	        $extension = substr(strrchr($filename, "."), 1);
+	        $name = str_replace(".".$extension, '', $filename);
 
-			$string_tmp = '';
-			for ($i=0; $i<strlen($name); $i++)
-			{
-				$char = ord(substr($name,$i,1));
-				if (($char>=48 && $char<=57) || ($char>=97 && $char<=122)) $string_tmp.=chr($char);
-				else $string_tmp.='_';
-			}
-			$destination=$file_prefix.$string_tmp.".".$extension;
+	        $destination = '';
+	        for ($i=0; $i<strlen($name); $i++)
+	        {
+	            $char = ord(substr($name, $i, 1));
+	            if (($char>=48 && $char<=57) || ($char>=97 && $char<=122)) $destination .= chr($char);
+	            else $destination .= '_';
+	        }
 
-			while (file_exists($archive_dir."/".$destination)) $destination=$file_prefix.$string_tmp."_".rand(0,10000).".".$extension;
+	        while (file_exists($archive_dir."/".$destination.".".$extension)) $destination .= '_';
 
-			return ($destination);
-		}
+	        return $destination.".".$extension;
+	    }
 
 
 

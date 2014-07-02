@@ -1,7 +1,7 @@
 Musca Kito
 ==========
 
-1. Big Picture
+1. Big Picture (Tour)
   - Authors
   - Idea
   - Programming good practicies
@@ -33,7 +33,7 @@ Musca was created by Ruben Casalta in Barcelona as an open source CMS. It evolve
 ## Idea
 
 The idea is that you (a developer) work less and better.
-Musca Kito is suppose to be a base to build your own web application with CMS. It is developer friendly, created by developers and for developers. 
+Musca Kito is suppose to be a base to build your own web applications. It is developer friendly, created by developers and for developers. 
 
 What is a framework?
 Goals of a framework:
@@ -117,7 +117,7 @@ Namespaces are one honking great idea -- let's do more of those!
 
 
 
-## Framework components
+## Klocki
 
 niepodzielne
 forma doskonala
