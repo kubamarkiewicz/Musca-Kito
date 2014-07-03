@@ -20,9 +20,9 @@
         protected $flex_sortorder = 'ASC';
 		
 
-		function __construct($db, $i18n, $auth)
+		function __construct($db, $i18n, $template, $config, $auth)
 		{
-			parent::__construct($db, $i18n, $auth);
+			parent::__construct($db, $i18n, $template, $config, $auth);
 
 			$this->flex_buttons = "buttons : [ {name: '".$this->i18n->t('Edit', 'grid')."', bclass: 'edit', onpress: test}, {name: '".$this->i18n->t('Delete', 'grid')."', bclass: 'delete', onpress: test}, {name: '".$this->i18n->t('Select all', 'grid')."', bclass : 'select', onpress : test}, {name: '".$this->i18n->t('Deselect all', 'grid')."', bclass : 'des-select', onpress : test} ],";
 		}

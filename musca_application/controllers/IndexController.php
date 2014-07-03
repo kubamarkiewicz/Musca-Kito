@@ -1,6 +1,6 @@
 <?php
 
-	class IndexController extends App_Controller
+	class IndexController extends BaseController
 	{
 
 		function indexAction($param=null)

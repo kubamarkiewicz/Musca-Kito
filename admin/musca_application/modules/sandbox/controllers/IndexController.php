@@ -23,9 +23,9 @@
 	}
 		
 
-	function __construct($db, $i18n, $auth)
+	function __construct($db, $i18n, $template, $config, $auth)
 	{
-		parent::__construct($db, $i18n, $auth);
+		parent::__construct($db, $i18n, $template, $config, $auth);
 		$this->template->assign('MAX_FILE_SIZE', Musca_Utils_Upload::maxUpload());
 		$this->template->assign('MAX_FILE_SIZE_HUMAN', Musca_Utils_Upload::maxUpload(1));
 	}

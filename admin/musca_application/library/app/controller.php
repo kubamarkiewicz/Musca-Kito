@@ -14,11 +14,11 @@
 		protected $flex_buttons;
 
 
-		function __construct($db, $i18n, $auth)
+		function __construct($db, $i18n, $template, $config, $auth)
 		{
 			$auth->authorize();
 
-			parent::__construct($db, $i18n);
+			parent::__construct($db, $i18n, $template, $config);
 
 			$this->flex_table = PRE.$this->flex_table;
 

@@ -8,10 +8,10 @@
         private $utils_db;
         protected $logic;
 
-		function __construct($db, $i18n, $auth)
+		function __construct($db, $i18n, $template, $config, $auth)
 		{			
 			$this->logic = $auth;
-			parent::__construct($db, $i18n);
+			parent::__construct($db, $i18n, $template, $config);
 		}
 
 		function indexAction()

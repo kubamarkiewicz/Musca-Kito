@@ -18,9 +18,12 @@
         protected $flex_class = array('published'=>'bool');
 		
 
-		function __construct($db, $i18n, $auth)
+
+		
+
+		function __construct($db, $i18n, $template, $config, $auth)
 		{
-			parent::__construct($db, $i18n, $auth);
+			parent::__construct($db, $i18n, $template, $config, $auth);
 		}
 		
 
