@@ -2,7 +2,12 @@
 !/musca_application/storage/.gitkeep
 !/musca_application/storage/cache/.gitkeep
 !/musca_application/storage/compile/.gitkeep
+!/uploads/.gitkeep
+!/uploads/files/.gitkeep
 /admin/musca_application/storage/*
+!/admin/musca_application/storage/.gitkeep
+!/admin/musca_application/storage/cache/.gitkeep
+!/admin/musca_application/storage/compile/.gitkeep
 /musca_application/vendor/*
 /.idea
 

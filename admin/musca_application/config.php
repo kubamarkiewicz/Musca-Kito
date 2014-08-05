@@ -15,9 +15,9 @@
 
 	// DATABASE CONNECTION  
 		define('HOST', 'localhost');
-		define('USER', 'marcus_marcus');
-		define('PASSWORD', 'k1u2b3a4');
-		define('DB_NAME', 'marcus_placczarnieckiego');
+		define('USER', 'root');
+		define('PASSWORD', 'root');
+		define('DB_NAME', 'musca');
 		define('PRE', ''); // table prefix
 
 	// directories relative to the front controller (index.php)

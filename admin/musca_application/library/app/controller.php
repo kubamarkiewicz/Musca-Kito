@@ -47,7 +47,7 @@
 			if ($this->module_title) $this->template->assign('module_title', $this->module_title);
 			$this->template->assign('buttons', $this->flex_buttons);
 			
-			$this->template->assign('wysiwygDisabled', Musca_Config::get('wysiwyg', 'disabled'));
+			$this->template->assign('wysiwygDisabled', $this->config->get('wysiwyg', 'disabled'));
 
 			$this->template->display('layout.tpl');
 		}
