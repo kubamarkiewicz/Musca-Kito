@@ -1,4 +1,5 @@
 /musca_application/storage/*
 /admin/musca_application/storage/*
-/vendor/*
+/musca_application/vendor/*
 /.idea
+

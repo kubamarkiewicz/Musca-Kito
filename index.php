@@ -11,3 +11,4 @@
 
 	$dispatcher = new Musca_Dispatcher($db, $i18n, $template, $config);
 	$dispatcher->ignite($_SERVER['REQUEST_URI']);
+
