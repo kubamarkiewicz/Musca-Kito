@@ -1,4 +1,7 @@
 /musca_application/storage/*
+!/musca_application/storage/.gitkeep
+!/musca_application/storage/cache/.gitkeep
+!/musca_application/storage/compile/.gitkeep
 /admin/musca_application/storage/*
 /musca_application/vendor/*
 /.idea
