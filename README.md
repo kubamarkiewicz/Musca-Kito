@@ -127,3 +127,26 @@ fun - nie wiesz czego sie spodziewac, bawisz sie i patrzysz co wyjdzie
 Przyklady klockow:
 jezyk, skladnia, funckje PHP
 code snippets
+
+
+## Brains
+
+Zombie.js is copyright of Assaf Arkin, released under the MIT License
+
+Blood, sweat and tears of joy:
+
+Bob Lail boblail
+
+Brian McDaniel
+
+Damian Janowski aka djanowski
+
+JosÃ© Valim aka josevalim
+
+Justin Latimer
+
+And all the fine people mentioned in the changelog.
+
+Zombie.js is written in CoffeeScript for Node.js
+
+Magical Zombie Girl by Toho Scope
