@@ -5,7 +5,7 @@
 	 *	Musca App configuration 
 	 *
 	 *	All constants are defined here.
-	 *	A rule of thumb for paths and URLs is: start with slash, end without it eg.: /your/localpath, /your/url
+	 *	A rule of thumb for paths and URLs is: start with slash, end without slash eg.: /your/localpath, /your/url
 	 */
 
 
@@ -36,7 +36,7 @@
 
 
 
-	/* AUTO-CONFIGURATION - BE CAREFUL  ********************************************************/
+	/* AUTO-CONFIGURATION  ********************************************************/
 
 							
 		define('MUSCA_URL', ((@$_SERVER["HTTPS"] == "on") ? "https://" : "http://") . $_SERVER['HTTP_HOST'].rtrim(dirname($_SERVER['SCRIPT_NAME']), '/'));	// URL of the front controller (index.php) eg. "http://www.compo.org/learning-center"
@@ -54,12 +54,9 @@
 		define('CAPSULE', md5(MUSCA_PATH));
 
 
-	// include path
-		set_include_path(
-			'.'
-			. PATH_SEPARATOR . MUSCA_PATH . MUSCA_LIBRARY_DIR . DS
-			. PATH_SEPARATOR . MUSCA_PATH . APP_DIR . LIBRARY_DIR . DS
-		);
+
+	// AUTOLOAD
+		require_once __DIR__.'/vendor/autoload.php';
 	// ------------------------------------- >>
 
 
@@ -76,22 +73,6 @@
 	// error log
 		ini_set('log_errors', 1);
 		ini_set('error_log', MUSCA_PATH.APP_DIR.STORAGE_DIR.'/log.txt');
-	// ------------------------------------- >>
-
-
-	// AUTOLOAD
-	    spl_autoload_register(null, false);
-	    spl_autoload_extensions('.php');
-	    function classLoader($class)
-		{
-			if (substr($class, 0, 15) == "Smarty_Internal")
-			{
-				$class = "Smarty/sysplugins/" . strtolower($class);
-				require_once $class . ".php";
-			}
-			else require_once str_replace('_','/',strtolower($class)).'.php';
-		}
-	    spl_autoload_register('classLoader');
 	// ------------------------------------- >>
 
 

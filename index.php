@@ -2,17 +2,17 @@
 
 /* Front Controller */
 
-use App\Kuba;
+// use App\Kuba;
+use MuscaKit\DB;
 
-require_once 'protected/vendor/autoload.php';
 require_once 'protected/config.php';
 
 
-/*
+
 	
 
-	$db = new Musca_DB(HOST, USER, PASSWORD, DB_NAME);
-	$i18n = new Musca_I18n(LANGS, $db);
+	$db = new DB(HOST, USER, PASSWORD, DB_NAME);
+/*	$i18n = new Musca_I18n(LANGS, $db);
 	$template = new Musca_Smarty($i18n);
 	$config = new Musca_Config($db);
 

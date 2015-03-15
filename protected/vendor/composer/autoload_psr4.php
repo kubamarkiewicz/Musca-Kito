@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'MuscaKit\\' => array($vendorDir . '/kubamarkiewicz/musca-kit-framework/src'),
     'App\\' => array($baseDir . '/app'),
 );

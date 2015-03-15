@@ -5,3 +5,22 @@ Stack trace:
 #2 /home/kuba/projekty/musca/Musca-Kito/musca_library/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase->fetch('home.tpl', NULL, NULL, NULL, true)
 #3 /home/kuba/projekty/musca/Musca-Kito/musca_application/controllers/IndexController.php(10): Smarty_Internal_TemplateBase->display('home.tpl')
 #4 [internal function]: IndexContr in /home/kuba/projekty/musca/Musca-Kito/musca_library/Smarty/sysplugins/smarty_internal_write_file.php on line 44
+[15-Mar-2015 01:39:55 Europe/Berlin] PHP Warning:  require_once(muscakit\kuba.php): failed to open stream: No such file or directory in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/config.php on line 92
+[15-Mar-2015 01:39:55 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'muscakit\kuba.php' (include_path='.:/Users/kuba/jacob marcus/projects/musca/MuscaKit-App/musca_library/:/Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/library/') in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/config.php on line 92
+[15-Mar-2015 01:41:28 Europe/Berlin] PHP Warning:  require_once(muscakit\exception.php): failed to open stream: No such file or directory in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/config.php on line 92
+[15-Mar-2015 01:41:28 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'muscakit\exception.php' (include_path='.:/Users/kuba/jacob marcus/projects/musca/MuscaKit-App/musca_library/:/Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/library/') in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/config.php on line 92
+[15-Mar-2015 01:42:38 Europe/Berlin] PHP Warning:  require_once(muscakit\exception.php): failed to open stream: No such file or directory in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/config.php on line 92
+[15-Mar-2015 01:42:38 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'muscakit\exception.php' (include_path='.:/Users/kuba/jacob marcus/projects/musca/MuscaKit-App/musca_library/:/Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/library/') in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/config.php on line 92
+[15-Mar-2015 01:45:34 Europe/Berlin] PHP Fatal error:  Class 'MuscaKit\Exception' not found in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/DB.php on line 277
+[15-Mar-2015 01:46:12 Europe/Berlin] PHP Fatal error:  Class 'MuscaKit\Exception' not found in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/DB.php on line 277
+[15-Mar-2015 01:46:14 Europe/Berlin] PHP Fatal error:  Class 'MuscaKit\Exception' not found in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/DB.php on line 277
+[15-Mar-2015 01:46:54 Europe/Berlin] PHP Fatal error:  Uncaught exception 'Exception' with message 'Error setting the database<br>
+Unknown database 'musca'<br>
+<br>
+' in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/DB.php:277
+Stack trace:
+#0 /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/DB.php(24): MuscaKit\DB->error('Error setting t...')
+#1 /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/DB.php(18): MuscaKit\DB->setDB('musca')
+#2 /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/index.php(14): MuscaKit\DB->__construct('localhost', 'root', 'root', 'musca')
+#3 {main}
+  thrown in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/DB.php on line 277

@@ -1,4 +1,4 @@
-Musca Kito
-==========
+MuscaKit Application
+====================
 
-No shit.
+The MuscaKit Application.
