@@ -21,7 +21,6 @@
 		define('PRE', ''); // table prefix
 
 	// directories relative to the front controller (index.php)
-		define('MUSCA_LIBRARY_DIR', '/musca_library');
 		define('UPLOADS_DIR', '/uploads');
 
 	// error reporting
@@ -39,16 +38,13 @@
 	/* AUTO-CONFIGURATION  ********************************************************/
 
 							
+		define('MUSCA_PATH', dirname(__DIR__)); // local server path of the front controller eg. "/compo/newsite"
 		define('MUSCA_URL', ((@$_SERVER["HTTPS"] == "on") ? "https://" : "http://") . $_SERVER['HTTP_HOST'].rtrim(dirname($_SERVER['SCRIPT_NAME']), '/'));	// URL of the front controller (index.php) eg. "http://www.compo.org/learning-center"
-		define('MUSCA_PATH', dirname(dirname(__FILE__))); // local server path of the front controller eg. "/compo/newsite"
-
-		define('DS', DIRECTORY_SEPARATOR);
-		define('APP_DIR', strrchr(dirname(__FILE__), DS));
-		define('CONTROLLERS_DIR', '/controllers');
-		define('LIBRARY_DIR', '/library');
-		define('TEMPLATES_DIR', '/templates');
-		define('MODULES_DIR', '/modules');
-		define('STORAGE_DIR', '/storage');
+		
+		define('PROTECTED_PATH', __DIR__);
+		define('APP_PATH', PROTECTED_PATH.'/app');
+		define('TEMPLATES_PATH', APP_PATH.'/Templates');
+		define('STORAGE_PATH', PROTECTED_PATH.'/storage');
 
 		define('MD5_SALT', md5(MUSCA_PATH));
 		define('CAPSULE', md5(MUSCA_PATH));
@@ -72,7 +68,7 @@
 		
 	// error log
 		ini_set('log_errors', 1);
-		ini_set('error_log', MUSCA_PATH.APP_DIR.STORAGE_DIR.'/log.txt');
+		ini_set('error_log', STORAGE_PATH.'/log.txt');
 	// ------------------------------------- >>
 
 
