@@ -38,12 +38,12 @@
 	/* AUTO-CONFIGURATION  ********************************************************/
 
 							
-		define('MUSCA_PATH', dirname(__DIR__)); // local server path of the front controller eg. "/compo/newsite"
+		define('MUSCA_PATH', dirname(dirname(__DIR__))); // local server path of the front controller eg. "/compo/newsite"
 		define('MUSCA_URL', ((@$_SERVER["HTTPS"] == "on") ? "https://" : "http://") . $_SERVER['HTTP_HOST'].rtrim(dirname($_SERVER['SCRIPT_NAME']), '/'));	// URL of the front controller (index.php) eg. "http://www.compo.org/learning-center"
 		
-		define('PROTECTED_PATH', __DIR__);
+		define('PROTECTED_PATH', dirname(__DIR__));
 		define('APP_PATH', PROTECTED_PATH.'/app');
-		define('TEMPLATES_PATH', APP_PATH.'/Templates');
+		define('VIEWS_PATH', APP_PATH.'/Views');
 		define('STORAGE_PATH', PROTECTED_PATH.'/storage');
 
 		define('MD5_SALT', md5(MUSCA_PATH));
@@ -52,7 +52,7 @@
 
 
 	// AUTOLOAD
-		require_once __DIR__.'/vendor/autoload.php';
+		require_once dirname(__DIR__).'/vendor/autoload.php';
 	// ------------------------------------- >>
 
 

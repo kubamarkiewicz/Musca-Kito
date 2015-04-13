@@ -86,3 +86,11 @@ Stack trace:
 [08-Apr-2015 02:31:19 Europe/Berlin] PHP Catchable fatal error:  Object of class MuscaKit\Smarty could not be converted to string in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/kubamarkiewicz/musca-kit-framework/src/Smarty.php on line 25
 [08-Apr-2015 02:31:46 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty: Unable to load template file 'contact.tpl' <-- 
   thrown in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/smarty/smarty/libs/sysplugins/smarty_internal_templatebase.php on line 129
+[13-Apr-2015 14:28:07 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty: Unable to load template file 'contact.tpl' <-- 
+  thrown in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/smarty/smarty/libs/sysplugins/smarty_internal_templatebase.php on line 129
+[13-Apr-2015 14:29:04 Europe/Berlin] PHP Fatal error:  Uncaught  --> Smarty: Unable to load template file 'contact.tpl' <-- 
+  thrown in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/vendor/smarty/smarty/libs/sysplugins/smarty_internal_templatebase.php on line 129
+[13-Apr-2015 15:51:39 Europe/Berlin] PHP Fatal error:  Class 'App\Controllers\TestModel' not found in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/app/Controllers/IndexController.php on line 18
+[13-Apr-2015 15:51:55 Europe/Berlin] PHP Fatal error:  Class 'Models\TestModel' not found in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/app/Controllers/IndexController.php on line 19
+[13-Apr-2015 15:52:22 Europe/Berlin] PHP Fatal error:  Class 'Models\TestModel' not found in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/app/Controllers/IndexController.php on line 19
+[13-Apr-2015 15:53:55 Europe/Berlin] PHP Fatal error:  Class 'Models\TestModel' not found in /Users/kuba/jacob marcus/projects/musca/MuscaKit-App/protected/app/Controllers/IndexController.php on line 19

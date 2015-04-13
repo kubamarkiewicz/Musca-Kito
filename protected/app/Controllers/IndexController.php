@@ -2,21 +2,22 @@
 namespace App\Controllers;
 
 use MuscaKit\Controller as BaseController;
+use App\Models\TestModel;
 
 class IndexController extends BaseController
 {
 
 	public function indexAction($param=null)
 	{
-		// exit('hello world!');
-		$this->template->assign('param', $param);
-		$this->template->assign('section', 'home');
-		$this->template->display('home.tpl');
+		$this->view->assign('param', $param);
+		$this->view->assign('section', 'home');
+		$this->view->display('home.tpl');
 	}
 
-	public function contactAction()
+	public function testAction()
 	{
-		$this->template->display('contact.tpl');
+		$model = new TestModel();
+		echo $model->sayHi();
 	}
 
 }
