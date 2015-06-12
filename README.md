@@ -3,13 +3,13 @@ MuscaKit CMS
 
 MuscaKit is an Open Source Content Management System build on its own MVC framework. It serves for developing small and medium-size websites and internet applications. 
 
-* Server Requirements
+# Server Requirements
 
 - PHP >= 5.3
 - MySQL
 - Apache with mod_rewrite or equivalent
 
-* 3 step instalation
+# 3 step instalation
 
 1. Download files from [github](https://github.com/kubamarkiewicz/MuscaKit-App) into a directory on your server
 2. Create a MySQL database and import file 'protected/muscakit.sql' to the database
