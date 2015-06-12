@@ -17,4 +17,4 @@ MuscaKit is an Open Source Content Management System build on its own MVC framew
 
 That's it! Now open a web browser and go to a directory where `index.php` is located and you should see "Hello world!" page.
 
-Next go to URL 'your_app_url/admin' and you should see administration panel login screen. Enter as demo/demo and click on "Hello demo" link in the top right corner to change your login and password. 
+Next go to URL `your_app_url/admin` and you should see administration panel login screen. Enter as demo/demo and click on "Hello demo" link in the top right corner to change your login and password. 
