@@ -1,23 +1,23 @@
 [
     {
         "name": "smarty/smarty",
-        "version": "v3.1.21",
-        "version_normalized": "3.1.21.0",
+        "version": "v3.1.24",
+        "version_normalized": "3.1.24.0",
         "source": {
             "type": "git",
             "url": "https://github.com/smarty-php/smarty.git",
-            "reference": "1f878e6d746ecc8ec8d00d9c75044cf7d23ad94a"
+            "reference": "b58771e31b11c721f6aa8e574e16e4058f9edc5f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/1f878e6d746ecc8ec8d00d9c75044cf7d23ad94a",
-            "reference": "1f878e6d746ecc8ec8d00d9c75044cf7d23ad94a",
+            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/b58771e31b11c721f6aa8e574e16e4058f9edc5f",
+            "reference": "b58771e31b11c721f6aa8e574e16e4058f9edc5f",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2"
         },
-        "time": "2014-10-31 04:22:20",
+        "time": "2015-05-23 17:22:14",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -29,7 +29,7 @@
             "classmap": [
                 "libs/Smarty.class.php",
                 "libs/SmartyBC.class.php",
-                "libs/sysplugins/smarty_security.php"
+                "libs/sysplugins/"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -63,12 +63,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/kubamarkiewicz/MuscaKit-Framework",
-            "reference": "99abae33aec4cef75136609e2ace4ebb948dab4c"
+            "reference": "33b9acfba244c14f1921d6959a576b2e4d46d01e"
         },
         "require": {
             "smarty/smarty": "~3.1@dev"
         },
-        "time": "2015-03-15 00:39:31",
+        "time": "2015-05-16 22:08:22",
         "type": "library",
         "installation-source": "source",
         "autoload": {

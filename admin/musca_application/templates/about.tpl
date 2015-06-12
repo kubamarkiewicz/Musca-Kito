@@ -1,1 +1,0 @@
-Musca Open Source
