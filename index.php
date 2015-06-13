@@ -2,10 +2,10 @@
 
 /* Front Controller */
 
-require_once 'protected/config/config.php';
+require_once 'protected/config.php';
 
 $db = new MuscaKit\DB(HOST, USER, PASSWORD, DB_NAME);
-// $i18n = new Musca_I18n(LANGS, $db);
+$i18n = new MuscaKit\I18n(LANGS, $db);
 $view = new MuscaKit\Smarty($i18n);
 $config = new MuscaKit\Config($db);
 

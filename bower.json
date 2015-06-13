@@ -1,0 +1,19 @@
+{
+  "name": "MuscaKit Admin Panel",
+  "version": "0.0.0",
+  "authors": [
+    "Kuba Markiewicz <kuba.markiewicz@gmail.com>"
+  ],
+  "main": "css/custom.css",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4"
+  }
+}

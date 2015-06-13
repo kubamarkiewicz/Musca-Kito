@@ -7,5 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'MuscaKit\\' => array($vendorDir . '/kubamarkiewicz/musca-kit-framework/src'),
-    'App\\' => array($baseDir . '/app'),
+    'Modules\\' => array($baseDir . '/Modules'),
+    'Models\\' => array($baseDir . '/Models'),
+    'Controllers\\' => array($baseDir . '/Controllers'),
+    'App\\' => array($baseDir . '/App'),
 );

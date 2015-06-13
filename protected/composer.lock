@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e47c9e37607d6dce2d9a7180e1a9298",
+    "hash": "2ff6009ed4929b1cbcdca3a1d6ecb5d0",
     "packages": [
         {
             "name": "kubamarkiewicz/musca-kit-framework",
