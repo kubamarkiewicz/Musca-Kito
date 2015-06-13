@@ -6,7 +6,7 @@ MuscaKit is an Open Source Content Management System build on its own MVC framew
 # On-line demo
 
 Demo application is avaliable [here](http://jacobmarcus.com/muscakit/). 
-Administration panel is [here](http://jacobmarcus.com/muscakit/). Login using username: _demo_ and password: _demo_
+Administration panel is [here](http://jacobmarcus.com/muscakit/admin). Login using username: _demo_ and password: _demo_
 
 
 # Server Requirements
@@ -25,6 +25,5 @@ That's it! Now open a web browser and go to a directory where `index.php` is loc
 
 ### Administration panel
 
-To access administration panel go to URL `your_app_url/admin` and you will see login screen. 
-Login using username: _demo_ and password: _demo_  
+You can access administration panel at URL `your_app_url/admin`. Login using username: _demo_ and password: _demo_  
 Next click on a link "Hello demo" in the top right corner to change your username and password. 
