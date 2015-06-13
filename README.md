@@ -5,7 +5,8 @@ MuscaKit is an Open Source Content Management System build on its own MVC framew
 
 # On-line demo
 
-Demo application is avaliable [here](http://jacobmarcus.com/muscakit/). Administration panel is [here](http://jacobmarcus.com/muscakit/). Login using username: _demo_ and password: _demo_
+Demo application is avaliable [here](http://jacobmarcus.com/muscakit/). 
+Administration panel is [here](http://jacobmarcus.com/muscakit/). Login using username: _demo_ and password: _demo_
 
 
 # Server Requirements
