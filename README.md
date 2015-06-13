@@ -25,6 +25,6 @@ That's it! Now open a web browser and go to a directory where `index.php` is loc
 
 ### Administration panel
 
-Go to URL `your_app_url/admin` and you should see login screen to the administration panel. 
+To access administration panel go to URL `your_app_url/admin` and you will see login screen. 
 Login using username: _demo_ and password: _demo_  
 Next click on a link "Hello demo" in the top right corner to change your username and password. 
