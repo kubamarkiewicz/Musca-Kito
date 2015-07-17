@@ -1,7 +1,7 @@
 MuscaKit CMS
 ============
 
-MuscaKit is an Open Source Content Management System build on a custom MVC framework. It was created for rapid development of small to medium-size websites and any kind of internet application. 
+MuscaKit is an Open Source Content Management System build on a custom MVC framework. It was created in 2012 in an interactive agancy in Barcelona and was intended for rapid development of small to medium-size websites and any kind of internet application. 
 
 # On-line demo
 
