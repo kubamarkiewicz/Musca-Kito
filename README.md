@@ -27,3 +27,12 @@ That's it! Now open a web browser and go to a directory where `index.php` is loc
 
 You can access administration panel at URL `your_app_url/admin`. Login using username: _demo_ and password: _demo_  
 Next click on a link "Hello demo" in the top right corner to change your username and password. 
+
+
+# Application structure
+
+There are 2 basic ways how you can structure your application: **Standard MVC Structure** and **Modularized Structure**
+
+### Standard MVC Structure
+
+### Modularized Structure
