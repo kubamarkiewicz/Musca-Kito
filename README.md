@@ -18,16 +18,16 @@ Administration panel is [here](http://jacobmarcus.com/muscakit/admin). Login usi
 
 # 3 steps instalation
 
-1. Download MuscaKit-Cms files from [github](https://github.com/kubamarkiewicz/MuscaKit-Cms)
-2. Create a MySQL database and import into it a file `protected/muscakit.sql`
-3. Set up access to the database in files `protected/config.php` and in `admin/protected/config.php`
+1. Download files from [github](https://github.com/kubamarkiewicz/MuscaKit-Cms)
+2. Create a MySQL database and import SQL file that you will find in downloaded files in `protected/muscakit.sql`
+3. Set up access to the database in configuration files located at `protected/config.php` and `admin/protected/config.php`
 
-That's it! Now open a web browser and go to a directory where `index.php` is located and you should see a "Hello world!" page.
+Done! Now open a web browser and go to a directory where `index.php` is located and you should see a "Hello world!" page.
 
 ### Administration panel
 
 You can access administration panel at URL `your_app_url/admin` using username: _demo_ and password: _demo_  
-To change your username and password click a link "Hello demo" in the top right corner.
+To change username and password click "Hello demo" link in the top right corner in administration panel.
 
 
 # Application structure
@@ -35,5 +35,7 @@ To change your username and password click a link "Hello demo" in the top right 
 There are 2 basic ways how you can structure your application: **Standard MVC Structure** and **Modularized Structure**
 
 ### Standard MVC Structure
+
+In basic MVC  
 
 ### Modularized Structure

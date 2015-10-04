@@ -1,30 +1,30 @@
 [
     {
         "name": "smarty/smarty",
-        "version": "v3.1.24",
-        "version_normalized": "3.1.24.0",
+        "version": "v3.1.27",
+        "version_normalized": "3.1.27.0",
         "source": {
             "type": "git",
             "url": "https://github.com/smarty-php/smarty.git",
-            "reference": "b58771e31b11c721f6aa8e574e16e4058f9edc5f"
+            "reference": "4537d8aae6c4a26f5439bc3a05d3437d25c2c4d2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/b58771e31b11c721f6aa8e574e16e4058f9edc5f",
-            "reference": "b58771e31b11c721f6aa8e574e16e4058f9edc5f",
+            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/4537d8aae6c4a26f5439bc3a05d3437d25c2c4d2",
+            "reference": "4537d8aae6c4a26f5439bc3a05d3437d25c2c4d2",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2"
         },
-        "time": "2015-05-23 17:22:14",
+        "time": "2015-06-18 00:55:59",
         "type": "library",
         "extra": {
             "branch-alias": {
                 "dev-master": "3.1.x-dev"
             }
         },
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "classmap": [
                 "libs/Smarty.class.php",
@@ -63,12 +63,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/kubamarkiewicz/MuscaKit-Framework",
-            "reference": "33b9acfba244c14f1921d6959a576b2e4d46d01e"
+            "reference": "b2ae13bb0570d45567ff2c096a4bcdea97136f4f"
         },
         "require": {
             "smarty/smarty": "~3.1@dev"
         },
-        "time": "2015-05-16 22:08:22",
+        "time": "2015-09-26 21:52:19",
         "type": "library",
         "installation-source": "source",
         "autoload": {
