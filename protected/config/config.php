@@ -1,19 +1,10 @@
 <?php
 
-
 	/**
 	 *	Musca configuration 
 	 *
-	 *	Convention: paths start with slash and end without slash eg.: /your/localpath, /your/url
+	 *	Paths convention: paths start with slash, end without slash eg.: /your/localpath, /your/url
 	 */
-
-
-	// DATABASE CONNECTION  
-		define('DB_HOST', 'localhost');
-		define('DB_USER', 'root');
-		define('DB_PASSWORD', 'root');
-		define('DB_NAME', 'musca');
-		define('DB_PRE', 'c21_'); // table prefix
 
 	// debugging
 		define('DEBUG_MODE', true);
@@ -25,4 +16,6 @@
 		define('LANGS', 'en, es');
 
 
-	require "autoconfig.php";
+	require_once "db.php";
+	require_once "autoconfig.php";
+	

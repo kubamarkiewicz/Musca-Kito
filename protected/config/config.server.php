@@ -13,7 +13,7 @@
 		define('DB_USER', 'marcus_marcus');
 		define('DB_PASSWORD', 'k1u2b3a4');
 		define('DB_NAME', 'marcus_cms');
-		define('DB_PRE', 'c18_'); // table prefix
+		define('DB_PREFIX', 'c18_'); // table prefix
 
 	// debugging
 		define('DEBUG_MODE', true);
