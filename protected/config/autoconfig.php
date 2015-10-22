@@ -16,7 +16,7 @@
 
 	define('PROTECTED_PATH', dirname(__DIR__));
 	define('MODULES_PATH', PROTECTED_PATH.'/Modules');
-	define('TEMP_PATH', PROTECTED_PATH.'/temp');
+	define('STORAGE_PATH', PROTECTED_PATH.'/storage');
 	
 
 
@@ -34,7 +34,7 @@
 		else error_reporting(0);
 	// error logs
 		ini_set('log_errors', 1);
-		ini_set('error_log', TEMP_PATH.'/log.txt');
+		ini_set('error_log', STORAGE_PATH.'/log.txt');
 	// ------------------------------------- >>
 
 
@@ -42,6 +42,6 @@
 		session_cache_limiter('nocache');
     	session_name(md5(__DIR__));
     	session_set_cookie_params(0);
-    	session_save_path(TEMP_PATH.'/session');
+    	session_save_path(STORAGE_PATH.'/session');
     	session_start();
 	// ------------------------------------- >>

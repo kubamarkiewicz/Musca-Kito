@@ -73,5 +73,5 @@ Standard MVC and Modularized Structure can coexist and you can use both of them 
 
 
 # References
-<a name="footnote1">1</a>: [AngularJS Best Practices: Directory Structure](https://scotch.io/tutorials/angularjs-best-practices-directory-structure)
+<a name="footnote1">1</a>: [AngularJS Best Practices: Directory Structure by Adnan Kukic](https://scotch.io/tutorials/angularjs-best-practices-directory-structure)
 
