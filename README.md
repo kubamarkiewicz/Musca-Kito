@@ -34,7 +34,7 @@ To change username and password click "Hello demo" link in the top right corner 
 There are 2 basic ways how you can structure your application: **Standard MVC Structure** and **Modularized Structure**
 
 ### Standard MVC Structure
-Standard MVC structure organize files in three basic folders, one folder for each of MVC layer. We have a separation of concerns, Models, Views (templates) and Controllers, each have their own folder:
+In Standard MVC Structure files are organized in three basic folders, one folder for each of MVC layer. We have a folder with Controllers, a folder with Models and a folder with templates (Views):
 ```sh
 protected
 ----Controllers

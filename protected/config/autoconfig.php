@@ -21,7 +21,7 @@
 
 
 	// AUTOLOAD ---------------------------- >>
-		require_once PROTECTED_PATH.'/vendor/autoload.php';
+		require_once PROTECTED_PATH.'/libraries/autoload.php';
 	// ------------------------------------- >>
 
 

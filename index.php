@@ -1,13 +1,14 @@
 <?php
 
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 /* Front Controller */
 
 require_once 'protected/config/config.php';
 
 // $db = new MuscaKit\DB(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-use Illuminate\Database\Capsule\Manager as Capsule;
-
+// connect to database
 $capsule = new Capsule;
 $capsule->addConnection([
 	'driver'	=> 'mysql',
@@ -20,6 +21,7 @@ $capsule->addConnection([
 ]);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
+
 
 $i18n = new MuscaKit\I18n(LANGS, $db);
 $view = new MuscaKit\Smarty($i18n);

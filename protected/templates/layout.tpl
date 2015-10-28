@@ -52,8 +52,8 @@
 
     <!-- Le javascript -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{$musca_url}/js/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="{$musca_url}/js/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{$musca_url}/js/libraries/jquery/dist/jquery.min.js"></script>
+    <script src="{$musca_url}/js/libraries/bootstrap/dist/js/bootstrap.min.js"></script>
     {block name=javascript}{/block}
 
 </body>

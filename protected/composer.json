@@ -1,4 +1,7 @@
 {
+    "config": {
+        "vendor-dir": "libraries"
+    },
     "autoload": {
         "psr-4": {
             "Controllers\\": "Controllers",
