@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="{if $description}{$description|strip_tags|htmlspecialchars}{else}{t section="$section" label="Page description"}Page description{/t}{/if}">
+    <title>{if $title}{$title|htmlspecialchars}{else}{t section="$section" label="Page Title (HTML Header)"}Page title{/t}{/if}</title>
+    <meta name="description" content="{if $description}{$description|strip_tags|htmlspecialchars}{else}{t section="$section" label="Meta Description (HTML Header)"}Page description{/t}{/if}">
     <meta name="author" content="Kuba Markiewicz">
     <link rel="icon" href="{$musca_url}/images/favicon.png">
 
-    <title>{if $title}{$title|htmlspecialchars}{else}{t section="$section" label="Page title"}Page title{/t}{/if}</title>
 
     <!-- Le styles -->
     <link rel="stylesheet" href="{$musca_url}/css/themes/united.min.css">
