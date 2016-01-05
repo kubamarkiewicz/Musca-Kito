@@ -77,28 +77,33 @@ Standard MVC and Modularized Structure can coexist and you can use both of them 
 
 # Front Controller
 
-All page requests are processed by the Front Controller file (index.php) that is located in the root folder. 
+All page requests are processed by the Front Controller file `index.php` that is located in the root folder. 
 
 # Routing
 
-MuscaKit offers automatic routing. URLs are automatically resolved to module/controller/action/parameters by Router class. Examples of possible routes:
+MuscaKit offers automatic routing. This means that the router is trying to find a controller and action matching the given URL. 
+Following routes are possible:
 ```sh
-http://domain.com/product/details/123 	: ProductController->details(123)
-http://domain.com/product 				: ProductController->index()
-http://domain.com 						: IndexController->index()
-http://domain.com/blog/post/view/123 	: Modules/Blog/PostController->view(123)
+http://domain.com 							>> \Controllers\IndexController->index()
+http://domain.com/product 					>> \Controllers\ProductController->index()
+http://domain.com/product/all		 		>> \Controllers\ProductController->all()
+http://domain.com/product/details/123 		>> \Controllers\ProductController->details(123)
+http://domain.com/shop/product/details/123	>> \Modules\Shop\ProductController->details(123)
 ```
-Multipart names in URLs can be separated by `-`, `_` or glued:
+Default controller name is `IndexController` and default action name is `index()`.
+If controller name or action name consist of multiple words they can be separated in URL by character `-` or `_` or glued:
 ```sh
-http://domain.com/my-products/show-latest	: MyProductsController->showLatest()
-http://domain.com/my_products/show_latest	: MyProductsController->showLatest()
-http://domain.com/myproducts/showlatest	: MyProductsController->showLatest()
+http://domain.com/myproducts/showlatest	>> \Controllers\MyProductsController->showLatest()
+http://domain.com/my-products/show-latest	>> \Controllers\MyProductsController->showLatest()
+http://domain.com/my_products/show_latest	>> \Controllers\MyProductsController->showLatest()
 ```
 
 
 # Controllers
 
-Controllers are located in `protected/Controllers` folder and are autoloaded by Composer. Controller class name should be in format: `ProductController` and should extend `Controller` class. Public controller's methods are called _actions_ and will be called by the router. 
+Controllers are located in `protected/Controllers` folder and are autoloaded by Composer. Controller class name should finish with word `Controller`: `ProductController`.
+The class should extend `\MuscaKit\Controller` class. 
+Public controllers' methods can be called by the router we will call them _actions_. 
 
 # Models
 
@@ -106,17 +111,25 @@ Models are located in `protected/Models` folder and are autoloaded by Composer.
 
 # Templates
 
+Templates are located in `protected/templates` folder.
 [Smarty Template Engine](http://www.smarty.net) is used for writing templates.
-Smarty object can be accessed in controller by `template` property: 
+Smarty object can be accessed inside a controller by `template` property: 
 ```sh
 $this->template->assign('param', $param);
 $this->template->display('home.tpl');
 ```
-Templates are located in `protected/templates` folder.
 
 ## Template inheritance
 
-A template can extend layout file for example:
+A template can extend layout file, for example:
+
+_home.tpl_
+```sh
+{extends file="layout.tpl"}
+{block name=content}
+    Hello World!
+{/block}
+```
 
 _layout.tpl_
 ```sh
@@ -131,16 +144,8 @@ _layout.tpl_
 </html>
 ```
 
-_home.tpl_
-```sh
-{extends file="layout.tpl"}
-{block name=content}
-    Hello World!
-{/block}
-```
 
-
-# Internacionalization
+# Internationalization
 
 
 
@@ -151,7 +156,7 @@ _home.tpl_
 
 [PSR-0](http://www.php-fig.org/psr/psr-0/)
 
-- Valid namespace format: \<Vendor Name>\(<Namespace>\)*<Class Name>
+- Valid namespace format: `\<Vendor Name>\(<Namespace>\)*<Class Name>`
 
 [PSR-1](http://www.php-fig.org/psr/psr-1/)
 
@@ -166,23 +171,23 @@ _home.tpl_
 
 ## MySQL
 
-- table name (singular): `my_product`
-- field name: `first_name`
+- Table name (singular): `my_product`
+- Field name: `first_name`
 - many-to-many relation table name: `order_has_product`
 
 ## MongoDB
 
-- collection name: `my_products`
-- field name: `first_name`
+- Collection name: `my_products`
+- Field name: `first_name`
 
 ## JavaScript
 
-- class name: `MyClassName`
+- Class name: `MyClassName`
 - JSON: `{ ‘this_is_a_key’: ‘value’ }`
 
 ## CSS
 
-- class name: `my-class-name` (like in Bootstrap)
+- Class name: `my-class-name` (like in Bootstrap)
 
 
 
