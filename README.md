@@ -171,6 +171,9 @@ Languages available in the application are configured in `/protected/config/conf
 
 # Coding standards
 
+Any naming standard is better than no standard. What is important is to be consistent.
+
+
 ## PHP
 
 [PSR-0](http://www.php-fig.org/psr/psr-0/)
@@ -186,17 +189,18 @@ Languages available in the application are configured in `/protected/config/conf
 [PSR-2](http://www.php-fig.org/psr/psr-2/)
 
 - Code MUST use 4 spaces for indenting, not tabs
-- Opening braces for control structures MUST go on the same line, and closing braces MUST go on the next line after the body
+- Opening braces for control structures (if, for, etc.) must go on the same line and closing braces must go on the next line after the body
 
 ## MySQL
 
-- Table name (singular): `my_product`
+- Table name (plural): `my_products`
 - Field name: `first_name`
 - many-to-many relation table name: `order_has_product`
+- primary key column name: `id`
 
 ## MongoDB
 
-- Collection name: `my_products`
+- Collection name: `my_products` (plural)
 - Field name: `first_name`
 
 ## JavaScript
@@ -207,6 +211,8 @@ Languages available in the application are configured in `/protected/config/conf
 ## CSS
 
 - Class name: `my-class-name` (like in Bootstrap)
+- In classes names avoid using general names like `.item` or `.visible` (from Bootstrap), because it may case conflicts between various parts of the page. Be specific. Create unique selectors by including parents (`.carousel .item`) or by using prefixes (`.carousel-item`)
+
 
 
 
